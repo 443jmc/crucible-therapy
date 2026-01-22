@@ -259,20 +259,6 @@
                 <h3 class="quiz-category-title">Couples Implementation Quizzes</h3>
                 <p class="quiz-category-intro">These quizzes help couples assess their readiness to implement specific Crucible Therapy practices.</p>
                 <div class="quiz-grid">
-                    <div class="quiz-card couples" onclick="startQuiz('hugging')">
-                        <div class="quiz-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/>
-                                <circle cx="9" cy="7" r="4"/>
-                                <path d="M23 21v-2a4 4 0 0 0-3-3.87"/>
-                                <path d="M16 3.13a4 4 0 0 1 0 7.75"/>
-                            </svg>
-                        </div>
-                        <h3>Hugging Till Relaxed Assessment</h3>
-                        <p>Evaluate your readiness for the "Hugging Till Relaxed" practice and learn to deepen physical intimacy.</p>
-                        <p class="quiz-meta">8 questions • Couples Practice</p>
-                        <span class="btn btn-primary">Start Quiz</span>
-                    </div>
                     <div class="quiz-card couples" onclick="startQuiz('fourpoints')">
                         <div class="quiz-icon">
                             <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
@@ -350,30 +336,6 @@
                         <div class="quiz-score"></div>
                         <div class="quiz-interpretation"></div>
                         <button class="btn btn-primary" onclick="resetQuiz('fourpointsquiz')">Take Quiz Again</button>
-                    </div>
-                </div>
-
-                <!-- Hugging Till Relaxed Quiz -->
-                <div id="quiz-hugging" class="quiz-container">
-                    <div class="quiz-header">
-                        <h3>Hugging Till Relaxed Practice Assessment</h3>
-                        <p>Evaluate your readiness and experience with the "Hugging Till Relaxed" technique.</p>
-                    </div>
-                    <div class="quiz-progress">
-                        <div class="progress-bar">
-                            <div class="progress-fill" style="width: 0%"></div>
-                        </div>
-                        <span class="progress-text">Question 1 of 8</span>
-                    </div>
-                    <div class="quiz-questions"></div>
-                    <div class="quiz-navigation">
-                        <button class="btn btn-secondary" onclick="prevQuestion('hugging')" disabled>Previous</button>
-                    </div>
-                    <div class="quiz-results">
-                        <h3>Your Results</h3>
-                        <div class="quiz-score"></div>
-                        <div class="quiz-interpretation"></div>
-                        <button class="btn btn-primary" onclick="resetQuiz('hugging')">Take Quiz Again</button>
                     </div>
                 </div>
 

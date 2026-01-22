@@ -303,91 +303,6 @@ const quizData = {
         ]
     },
     // COUPLES IMPLEMENTATION QUIZZES
-    hugging: {
-        title: "Hugging Till Relaxed Practice Assessment",
-        type: "self-assessment",
-        description: "Evaluate your readiness and experience with the 'Hugging Till Relaxed' technique.",
-        questions: [
-            {
-                question: "When you and your partner embrace in a long hug, what typically happens?",
-                options: [
-                    { text: "One or both of us quickly pulls away or feels uncomfortable", score: 1 },
-                    { text: "We hold on but I notice tension in my body or racing thoughts", score: 2 },
-                    { text: "We can stay connected for a while but eventually feel restless", score: 3 },
-                    { text: "We both gradually relax and feel genuinely calm together", score: 4 }
-                ]
-            },
-            {
-                question: "During a prolonged embrace, I tend to:",
-                options: [
-                    { text: "Focus on when it will end or what my partner is thinking", score: 1 },
-                    { text: "Try to 'fix' the moment by adjusting position or talking", score: 2 },
-                    { text: "Sometimes drift mentally but can bring myself back", score: 3 },
-                    { text: "Focus on my own breathing and allow myself to settle", score: 4 }
-                ]
-            },
-            {
-                question: "When physically close to my partner in silence, I feel:",
-                options: [
-                    { text: "Anxious and need to fill the silence with words or action", score: 1 },
-                    { text: "Somewhat uncomfortable but can tolerate it briefly", score: 2 },
-                    { text: "Generally okay, though my mind sometimes wanders", score: 3 },
-                    { text: "Present and connected without needing to do anything", score: 4 }
-                ]
-            },
-            {
-                question: "My ability to physically support my own weight while hugging (standing on my own feet) is:",
-                options: [
-                    { text: "Poor - I tend to lean heavily on my partner or feel unbalanced", score: 1 },
-                    { text: "Inconsistent - I sometimes catch myself leaning too much", score: 2 },
-                    { text: "Good - I can usually maintain my own balance", score: 3 },
-                    { text: "Strong - I feel grounded and balanced while fully embracing", score: 4 }
-                ]
-            },
-            {
-                question: "If my partner seems tense during a hug, I typically:",
-                options: [
-                    { text: "Become tense myself or pull away", score: 1 },
-                    { text: "Try to make them relax by rubbing their back or talking", score: 2 },
-                    { text: "Notice it but focus on staying calm myself", score: 3 },
-                    { text: "Stay centered and trust that they'll settle in their own time", score: 4 }
-                ]
-            },
-            {
-                question: "After practicing intentional, prolonged hugging, I notice:",
-                options: [
-                    { text: "We haven't really tried this or it felt too awkward", score: 1 },
-                    { text: "Some benefit but we don't do it consistently", score: 2 },
-                    { text: "It helps us reconnect, especially after stressful days", score: 3 },
-                    { text: "It has become a meaningful ritual that deepens our bond", score: 4 }
-                ]
-            },
-            {
-                question: "When I notice myself getting anxious during physical closeness, I:",
-                options: [
-                    { text: "Usually can't calm down until I create some distance", score: 1 },
-                    { text: "Struggle but sometimes manage to stay present", score: 2 },
-                    { text: "Can usually use my breath to settle myself", score: 3 },
-                    { text: "Have reliable ways to self-soothe while staying connected", score: 4 }
-                ]
-            },
-            {
-                question: "The idea of standing in a silent embrace for 5-10 minutes sounds:",
-                options: [
-                    { text: "Impossible or extremely uncomfortable", score: 1 },
-                    { text: "Challenging but something I could try", score: 2 },
-                    { text: "Doable and potentially meaningful", score: 3 },
-                    { text: "Like something we already do or would enjoy", score: 4 }
-                ]
-            }
-        ],
-        interpretations: [
-            { min: 8, max: 14, level: "Beginning", description: "Physical closeness and prolonged embracing feel challenging for you right now. This is completely normal - many couples find this difficult initially. Start with shorter hugs (30-60 seconds) and focus on your own breathing. The goal isn't to force relaxation but to gradually build your tolerance for intimate physical contact. Practice standing on your own two feet while hugging, focusing on your own center of gravity." },
-            { min: 15, max: 22, level: "Developing", description: "You're building capacity for sustained physical intimacy. You may notice that you can sometimes stay present but other times feel the urge to escape or fix the moment. This is progress! Continue practicing with intention - try setting a timer for 3-5 minutes and focus solely on calming yourself (not your partner). Notice when you start to get anxious and practice breathing through it." },
-            { min: 23, max: 28, level: "Progressing", description: "You have developed meaningful capacity for intimate physical connection. You can generally self-soothe while staying present with your partner. To deepen this practice, try extending your hugging sessions and notice subtler levels of relaxation. Pay attention to moments when you and your partner seem to 'sync up' - this is the co-regulation that Schnarch describes as deeply bonding." },
-            { min: 29, max: 32, level: "Advanced", description: "You demonstrate strong ability to be physically intimate while maintaining your own emotional center. 'Hugging till relaxed' likely feels natural and nourishing for your relationship. Continue using this practice as a touchstone, especially during stressful times. You might explore other intimacy practices that build on this foundation, such as maintaining eye contact during vulnerable moments or experimenting with the 'eyes-open' techniques Schnarch describes." }
-        ]
-    },
     fourpoints: {
         title: "Four Points of Balance Assessment",
         type: "self-assessment",
@@ -600,7 +515,6 @@ const quizData = {
 let quizState = {
     differentiation: { currentQuestion: 0, answers: [], active: false },
     fourpointsquiz: { currentQuestion: 0, answers: [], active: false },
-    hugging: { currentQuestion: 0, answers: [], active: false },
     fourpoints: { currentQuestion: 0, answers: [], active: false },
     gridlock: { currentQuestion: 0, answers: [], active: false }
 };
