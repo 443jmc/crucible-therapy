@@ -694,18 +694,48 @@ function selectOption(quizId, questionIndex, optionIndex) {
     const quiz = quizData[quizId];
     const wasAlreadyAnswered = quizState[quizId].answers[questionIndex] !== undefined;
 
+    // Don't allow changing answers (already answered)
+    if (wasAlreadyAnswered) {
+        return;
+    }
+
     quizState[quizId].answers[questionIndex] = optionIndex;
 
-    // For educational quizzes, re-render to show explanation
-    if (quiz.type === 'educational' && !wasAlreadyAnswered) {
+    // Update visual selection
+    const options = document.querySelectorAll(`#quiz-${quizId} .quiz-option`);
+    options.forEach((opt, index) => {
+        opt.classList.toggle('selected', index === optionIndex);
+    });
+
+    // For educational quizzes, show explanation then auto-advance
+    if (quiz.type === 'educational') {
         renderQuestion(quizId, questionIndex);
+        // Auto-advance after delay for user to read explanation
+        setTimeout(() => {
+            autoAdvance(quizId);
+        }, 2000);
     } else {
-        // Update visual selection
-        const options = document.querySelectorAll(`#quiz-${quizId} .quiz-option`);
-        options.forEach((opt, index) => {
-            opt.classList.toggle('selected', index === optionIndex);
-        });
+        // For self-assessment, advance immediately with brief delay for visual feedback
+        setTimeout(() => {
+            autoAdvance(quizId);
+        }, 400);
     }
+}
+
+function autoAdvance(quizId) {
+    const state = quizState[quizId];
+    const quiz = quizData[quizId];
+
+    // Check if last question
+    if (state.currentQuestion >= quiz.questions.length - 1) {
+        showResults(quizId);
+        return;
+    }
+
+    // Move to next question
+    state.currentQuestion++;
+    renderQuestion(quizId, state.currentQuestion);
+    updateProgress(quizId);
 }
 
 function nextQuestion(quizId) {
@@ -756,14 +786,10 @@ function updateProgress(quizId) {
 
 function updateNavigation(quizId) {
     const state = quizState[quizId];
-    const quiz = quizData[quizId];
     const container = document.getElementById(`quiz-${quizId}`);
 
     const prevBtn = container.querySelector('.quiz-navigation .btn-secondary');
-    const nextBtn = container.querySelector('.quiz-navigation .btn-primary');
-
     prevBtn.disabled = state.currentQuestion === 0;
-    nextBtn.textContent = state.currentQuestion >= quiz.questions.length - 1 ? 'See Results' : 'Next';
 }
 
 function showResults(quizId) {
