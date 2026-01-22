@@ -186,119 +186,119 @@ const quizData = {
             { min: 51, max: 60, level: "Well-Differentiated", description: "You demonstrate strong differentiation abilities. You appear to have a solid sense of self that remains stable regardless of your partner's reactions. You can likely engage in vulnerable self-disclosure without needing validation, and maintain your emotional equilibrium even during conflict. Your capacity for true intimacy - knowing and being known - is well-developed." }
         ]
     },
-    concepts: {
-        title: "Crucible Concepts Quiz",
+    fourpointsquiz: {
+        title: "Four Points of Balance Quiz",
         type: "educational",
         questions: [
             {
-                question: "What is 'differentiation' in the context of Crucible Therapy?",
+                question: "What is the first of the Four Points of Balance?",
                 options: [
-                    { text: "The ability to be different from your partner", score: 0 },
-                    { text: "Maintaining your sense of self while emotionally close to others", score: 1 },
-                    { text: "Separating from your partner during conflicts", score: 0 },
-                    { text: "Differentiating between good and bad relationships", score: 0 }
+                    { text: "Quiet Mind-Calm Heart", score: 0 },
+                    { text: "Solid Flexible Self", score: 1 },
+                    { text: "Grounded Responding", score: 0 },
+                    { text: "Meaningful Endurance", score: 0 }
                 ],
                 correct: 1,
-                explanation: "Differentiation is the ability to maintain your sense of self—your identity, values, and beliefs—while remaining emotionally connected to your partner. It's not about distance or separation, but about being able to stay true to yourself even in moments of closeness or conflict. This is the core concept in Crucible Therapy."
+                explanation: "Solid Flexible Self is the first point of balance. It refers to having a clear sense of your identity, values, and beliefs—while remaining genuinely open to new information and perspectives. It's the ability to say 'This is who I am' without becoming rigid or closed off."
             },
             {
-                question: "According to Crucible Therapy, relationship gridlock is:",
+                question: "What does 'Quiet Mind-Calm Heart' refer to?",
                 options: [
-                    { text: "A sign the relationship is failing", score: 0 },
-                    { text: "Something to be avoided at all costs", score: 0 },
-                    { text: "An opportunity for personal growth", score: 1 },
-                    { text: "Proof that partners are incompatible", score: 0 }
+                    { text: "Meditating every day", score: 0 },
+                    { text: "Never feeling anxious", score: 0 },
+                    { text: "The ability to self-soothe and regulate your own emotions", score: 1 },
+                    { text: "Staying silent during arguments", score: 0 }
                 ],
                 correct: 2,
-                explanation: "Crucible Therapy views gridlock not as a problem to be avoided, but as an opportunity. When couples hit an impasse, it's actually the relationship pushing them to grow. Gridlock highlights where each partner needs to develop greater differentiation. This reframing transforms relationship struggles from threats into catalysts for personal development."
+                explanation: "Quiet Mind-Calm Heart is the capacity to self-soothe—to calm your own anxiety and regulate your own emotions rather than depending on your partner or external circumstances to make you feel okay. It's the internal steadiness that allows you to think clearly even when things get intense."
             },
             {
-                question: "What is 'self-validated intimacy'?",
+                question: "Grounded Responding means:",
                 options: [
-                    { text: "Validating yourself without needing a partner", score: 0 },
-                    { text: "Sharing yourself without needing your partner's approval", score: 1 },
-                    { text: "Being intimate only when you feel validated", score: 0 },
-                    { text: "Avoiding intimacy that feels uncomfortable", score: 0 }
+                    { text: "Always agreeing with your partner to avoid conflict", score: 0 },
+                    { text: "Acting from your values rather than emotional reactivity", score: 1 },
+                    { text: "Taking time to respond to every text message", score: 0 },
+                    { text: "Standing your ground no matter what", score: 0 }
                 ],
                 correct: 1,
-                explanation: "Self-validated intimacy means sharing your authentic self—your thoughts, feelings, desires, and vulnerabilities—without requiring your partner to validate or approve of what you share. It's about finding your worth within yourself rather than needing it reflected back by your partner. This creates deeper, more genuine intimacy because you're sharing who you truly are."
+                explanation: "Grounded Responding is the ability to act from your values and clear thinking rather than from emotional reactivity. It's choosing your response rather than having it hijacked by fight-flight-freeze reactions. It means pausing before responding when triggered and saying what you actually mean."
             },
             {
-                question: "The 'Four Points of Balance' include all EXCEPT:",
+                question: "Meaningful Endurance involves:",
                 options: [
-                    { text: "Solid flexible self", score: 0 },
-                    { text: "Quiet mind and calm heart", score: 0 },
-                    { text: "Complete emotional independence", score: 1 },
-                    { text: "Meaningful endurance", score: 0 }
+                    { text: "Tolerating abuse in a relationship", score: 0 },
+                    { text: "Never giving up on anything", score: 0 },
+                    { text: "Tolerating discomfort in service of growth and your values", score: 1 },
+                    { text: "Enduring a bad marriage for the children", score: 0 }
                 ],
                 correct: 2,
-                explanation: "The Four Points of Balance are: (1) Solid Flexible Self—having clear values while remaining open, (2) Quiet Mind-Calm Heart—self-soothing and emotional regulation, (3) Grounded Responding—acting from values rather than reactivity, and (4) Meaningful Endurance—tolerating discomfort for growth. Note that 'complete emotional independence' is NOT one of them—Crucible Therapy is about connection AND self-hood, not isolation."
+                explanation: "Meaningful Endurance is the capacity to tolerate discomfort, pain, and anxiety in service of something important—whether that's personal growth, relationship development, or living according to your values. The word 'meaningful' is crucial—it's not suffering for suffering's sake, but endurance with purpose."
             },
             {
-                question: "Who developed Crucible Therapy?",
+                question: "A person with a 'Solid Flexible Self' would likely:",
                 options: [
-                    { text: "Dr. John Gottman", score: 0 },
-                    { text: "Dr. David Schnarch", score: 1 },
-                    { text: "Dr. Sue Johnson", score: 0 },
-                    { text: "Dr. Esther Perel", score: 0 }
-                ],
-                correct: 1,
-                explanation: "Dr. David Schnarch developed Crucible Therapy over decades of work with couples. His approach differs from other prominent couples therapists: Gottman focuses on communication patterns, Sue Johnson developed Emotionally Focused Therapy (EFT) based on attachment theory, and Esther Perel specializes in desire and infidelity. Schnarch's unique contribution is the focus on differentiation and using marriage as a 'people-growing machine.'"
-            },
-            {
-                question: "'Holding onto yourself' means:",
-                options: [
-                    { text: "Being stubborn and refusing to compromise", score: 0 },
-                    { text: "Physically distancing during arguments", score: 0 },
-                    { text: "Staying grounded in your values when pressured to change", score: 1 },
-                    { text: "Never showing vulnerability to your partner", score: 0 }
+                    { text: "Change their opinion to match whoever they're talking to", score: 0 },
+                    { text: "Refuse to ever consider another perspective", score: 0 },
+                    { text: "Hold their position while remaining genuinely curious about their partner's view", score: 1 },
+                    { text: "Avoid sharing their opinions to prevent conflict", score: 0 }
                 ],
                 correct: 2,
-                explanation: "'Holding onto yourself' is about maintaining your identity and values when facing pressure from your partner—especially during conflict or moments of anxiety. It's NOT about being stubborn or refusing to listen. It's about being able to consider your partner's perspective while still staying anchored in who you are. This allows you to engage authentically rather than caving to pressure or becoming defensive."
+                explanation: "Someone with a Solid Flexible Self can hold their position while remaining genuinely curious about their partner's view. 'Solid' doesn't mean rigid—they can consider other perspectives without feeling threatened. And 'flexible' doesn't mean wishy-washy—they remain anchored in who they are while staying open to growth."
             },
             {
-                question: "The metaphor of a 'crucible' refers to:",
+                question: "Which is NOT a characteristic of Quiet Mind-Calm Heart?",
                 options: [
-                    { text: "A container that uses heat to refine metals", score: 1 },
-                    { text: "A type of relationship problem", score: 0 },
-                    { text: "A communication technique", score: 0 },
-                    { text: "A stage in relationship development", score: 0 }
+                    { text: "Being able to calm yourself when anxious", score: 0 },
+                    { text: "Needing your partner to reassure you before you can feel okay", score: 1 },
+                    { text: "Maintaining the ability to think clearly during emotional conversations", score: 0 },
+                    { text: "Having practices that help you return to center when triggered", score: 0 }
                 ],
-                correct: 0,
-                explanation: "A crucible is a container used in metallurgy that withstands extreme heat to refine metals, burning away impurities to reveal something stronger and purer. Schnarch uses this as a metaphor for committed relationships: the 'heat' of relationship challenges can refine us, burning away our immaturities and forcing us to develop greater integrity. The relationship container holds us while this transformation occurs."
+                correct: 1,
+                explanation: "Needing your partner to reassure you before you can feel okay is the opposite of Quiet Mind-Calm Heart. This point of balance is about self-soothing—regulating your own emotions rather than depending on your partner. While support from others is valuable, Quiet Mind-Calm Heart means you can function without it."
             },
             {
-                question: "In Crucible Therapy, anxiety in relationships is viewed as:",
+                question: "When your partner says something hurtful, Grounded Responding would look like:",
                 options: [
-                    { text: "Always harmful and to be eliminated", score: 0 },
-                    { text: "A sign of poor mental health", score: 0 },
-                    { text: "A natural part of growth to be tolerated", score: 1 },
-                    { text: "Evidence of relationship problems", score: 0 }
+                    { text: "Immediately firing back with a hurtful comment of your own", score: 0 },
+                    { text: "Shutting down and refusing to talk", score: 0 },
+                    { text: "Pausing, then responding thoughtfully from your values", score: 1 },
+                    { text: "Pretending it didn't bother you", score: 0 }
                 ],
                 correct: 2,
-                explanation: "Crucible Therapy recognizes that anxiety is inevitable in intimate relationships—and that's actually okay. Growth requires moving beyond our comfort zone, which naturally produces anxiety. The goal isn't to eliminate anxiety but to develop the capacity to tolerate it while staying engaged. Learning to self-soothe and stay present despite anxiety is a core skill of differentiation."
+                explanation: "Grounded Responding means pausing before responding when triggered, then responding thoughtfully from your values rather than reactively from hurt or anger. It's not about being perfectly calm or suppressing emotions—it's about choosing your response rather than being hijacked by reactivity."
             },
             {
-                question: "What distinguishes Crucible Therapy from traditional couples therapy?",
+                question: "Meaningful Endurance is different from just 'enduring' because:",
                 options: [
-                    { text: "It focuses primarily on communication skills", score: 0 },
-                    { text: "It uses personal growth as the vehicle for relationship improvement", score: 1 },
-                    { text: "It avoids discussing difficult topics", score: 0 },
-                    { text: "It only works with one partner at a time", score: 0 }
+                    { text: "It involves physical exercise", score: 0 },
+                    { text: "The discomfort serves growth, values, or something important", score: 1 },
+                    { text: "It's only for short periods of time", score: 0 },
+                    { text: "It requires a therapist to guide you", score: 0 }
                 ],
                 correct: 1,
-                explanation: "While many approaches focus on teaching communication skills or managing conflict, Crucible Therapy focuses on individual growth as the primary vehicle for relationship change. Rather than just learning to 'fight fair' or express needs better, partners are challenged to become more differentiated—more solid in themselves. This growth then naturally transforms the relationship dynamics."
+                explanation: "The 'meaningful' in Meaningful Endurance is crucial. It's not about enduring abuse or staying in destructive situations. It's about tolerating discomfort when that discomfort serves growth, values, or something genuinely important. Suffering without purpose isn't a virtue."
             },
             {
-                question: "According to Schnarch, marriage is described as:",
+                question: "How do the Four Points of Balance work together?",
                 options: [
-                    { text: "A source of comfort and security", score: 0 },
-                    { text: "A people-growing machine", score: 1 },
-                    { text: "An outdated institution", score: 0 },
-                    { text: "Best when conflict-free", score: 0 }
+                    { text: "You only need to develop one of them", score: 0 },
+                    { text: "They are separate skills that don't affect each other", score: 0 },
+                    { text: "They form an integrated system where each supports the others", score: 1 },
+                    { text: "You must master them in order, one at a time", score: 0 }
                 ],
-                correct: 1,
-                explanation: "Schnarch famously describes marriage as a 'people-growing machine.' This means committed relationships are inherently designed to challenge us and promote growth. The friction, gridlock, and challenges couples face aren't bugs—they're features. Marriage pushes us to develop greater differentiation, and this growth benefits not just the relationship but the individuals themselves."
+                correct: 2,
+                explanation: "The Four Points work as an integrated system—like four legs of a table, you need all four for stability. Solid Flexible Self gives you something to hold onto; Quiet Mind-Calm Heart lets you access that solid self under pressure; Grounded Responding translates inner stability into outer actions; and Meaningful Endurance keeps you engaged long enough for the others to matter."
+            },
+            {
+                question: "Developing the Four Points of Balance primarily helps you:",
+                options: [
+                    { text: "Win arguments with your partner", score: 0 },
+                    { text: "Avoid all conflict in relationships", score: 0 },
+                    { text: "Maintain your sense of self while staying connected to your partner", score: 1 },
+                    { text: "Become emotionally independent from everyone", score: 0 }
+                ],
+                correct: 2,
+                explanation: "The Four Points of Balance help you maintain your sense of self while staying connected to your partner—especially during challenging moments. They're not about winning, avoiding conflict, or becoming isolated. They're about becoming a more differentiated person who can engage authentically in intimate relationships."
             }
         ]
     },
@@ -599,7 +599,7 @@ const quizData = {
 // ===== Quiz State =====
 let quizState = {
     differentiation: { currentQuestion: 0, answers: [], active: false },
-    concepts: { currentQuestion: 0, answers: [], active: false },
+    fourpointsquiz: { currentQuestion: 0, answers: [], active: false },
     hugging: { currentQuestion: 0, answers: [], active: false },
     fourpoints: { currentQuestion: 0, answers: [], active: false },
     gridlock: { currentQuestion: 0, answers: [], active: false }
