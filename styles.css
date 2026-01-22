@@ -942,6 +942,39 @@ a.feature-card.clickable:hover .learn-more {
     margin-bottom: 0;
 }
 
+/* Clickable concept cards */
+a.concept-card.clickable {
+    display: block;
+    text-decoration: none;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+}
+
+a.concept-card.clickable:hover {
+    transform: translateY(-3px);
+    box-shadow: var(--shadow-md);
+}
+
+a.concept-card.clickable h4 {
+    color: var(--color-primary);
+}
+
+a.concept-card.clickable p {
+    color: var(--color-text-light);
+}
+
+a.concept-card.clickable .learn-more {
+    display: inline-block;
+    margin-top: var(--spacing-sm);
+    color: var(--color-primary);
+    font-weight: 600;
+    font-size: 0.9rem;
+    transition: transform var(--transition-fast);
+}
+
+a.concept-card.clickable:hover .learn-more {
+    transform: translateX(5px);
+}
+
 /* ===== Book & Article Page Styles ===== */
 .book-page-header {
     padding-bottom: var(--spacing-xl);
