@@ -1777,7 +1777,7 @@ a.concept-card.clickable:hover .learn-more {
 
 /* ===== Simple Hero Section ===== */
 .simple-hero {
-    padding: calc(80px + var(--spacing-xl)) 0 var(--spacing-xl);
+    padding: calc(80px + var(--spacing-xxl)) 0 var(--spacing-xl);
     background: linear-gradient(135deg, var(--color-warm-beige) 0%, var(--color-warm-cream) 100%);
     text-align: center;
     border-bottom: 1px solid var(--color-warm-tan);
