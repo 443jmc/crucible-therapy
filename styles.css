@@ -1774,3 +1774,151 @@ a.concept-card.clickable:hover .learn-more {
         justify-content: center;
     }
 }
+
+/* ===== Homepage Book Cards with Covers ===== */
+.book-card {
+    display: flex;
+    flex-direction: column;
+}
+
+.book-cover-link {
+    display: block;
+    overflow: hidden;
+    border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+}
+
+.book-card .book-cover {
+    width: 100%;
+    height: 280px;
+    object-fit: cover;
+    object-position: top;
+    transition: transform var(--transition-normal);
+}
+
+.book-cover-link:hover .book-cover {
+    transform: scale(1.05);
+}
+
+.book-card .book-info {
+    padding: var(--spacing-lg);
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.book-card .book-info h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-xs);
+}
+
+.book-card .book-info .book-author {
+    font-style: italic;
+    color: var(--color-text-light);
+    margin-bottom: var(--spacing-sm);
+}
+
+.book-card .book-info p:not(.book-author) {
+    flex: 1;
+    color: var(--color-text-light);
+}
+
+.book-card .book-info .btn {
+    margin-top: auto;
+    align-self: flex-start;
+}
+
+/* ===== Article Card with Image (David Schnarch) ===== */
+.article-card.with-image {
+    display: flex;
+    gap: var(--spacing-lg);
+    align-items: center;
+}
+
+.article-card .article-image {
+    width: 150px;
+    height: 150px;
+    object-fit: cover;
+    border-radius: var(--radius-md);
+    flex-shrink: 0;
+}
+
+.article-card .article-text {
+    flex: 1;
+}
+
+.article-card .article-text h3 {
+    margin-bottom: var(--spacing-sm);
+}
+
+.article-card .article-text p {
+    margin-bottom: 0;
+}
+
+/* ===== Author Photo on Article Page ===== */
+.author-photo {
+    float: right;
+    margin: 0 0 var(--spacing-lg) var(--spacing-lg);
+    max-width: 250px;
+    text-align: center;
+}
+
+.author-photo .schnarch-portrait {
+    width: 100%;
+    border-radius: var(--radius-lg);
+    box-shadow: var(--shadow-md);
+}
+
+.author-photo figcaption {
+    margin-top: var(--spacing-sm);
+    font-style: italic;
+    color: var(--color-text-light);
+    font-size: 0.9rem;
+}
+
+/* ===== Footer Disclaimer ===== */
+.footer-disclaimer {
+    text-align: center;
+    padding: var(--spacing-md);
+    margin-bottom: var(--spacing-md);
+    background-color: rgba(255,255,255,0.05);
+    border-radius: var(--radius-md);
+    font-size: 0.9rem;
+}
+
+.footer-disclaimer a {
+    color: var(--color-primary-light);
+}
+
+.footer-disclaimer a:hover {
+    color: var(--color-white);
+    text-decoration: underline;
+}
+
+/* Responsive adjustments for book covers and images */
+@media (max-width: 768px) {
+    .article-card.with-image {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .article-card .article-image {
+        width: 120px;
+        height: 120px;
+    }
+
+    .author-photo {
+        float: none;
+        margin: 0 auto var(--spacing-lg);
+        max-width: 200px;
+    }
+
+    .book-card .book-cover {
+        height: 220px;
+    }
+}
+
+@media (max-width: 480px) {
+    .book-card .book-cover {
+        height: 180px;
+    }
+}
