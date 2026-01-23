@@ -96,6 +96,8 @@
             border-radius: 8px;
             background: #0a0a1a;
             cursor: crosshair;
+            max-width: 100%;
+            touch-action: manipulation;
         }
 
         .tower-panel {
@@ -225,6 +227,100 @@
 
         .hidden {
             display: none !important;
+        }
+
+        /* Mobile styles */
+        @media (max-width: 900px) {
+            .game-wrapper {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .tower-panel {
+                width: 100%;
+                max-width: 800px;
+                display: flex;
+                flex-wrap: wrap;
+                gap: 0.5rem;
+                justify-content: center;
+                align-items: flex-start;
+            }
+
+            .tower-panel h3 {
+                width: 100%;
+                margin-bottom: 0.5rem;
+            }
+
+            .tower-option {
+                width: calc(50% - 0.5rem);
+                margin-bottom: 0;
+                padding: 0.5rem;
+            }
+
+            .tower-desc {
+                display: none;
+            }
+
+            .controls {
+                width: 100%;
+                flex-direction: row;
+                justify-content: center;
+            }
+
+            .controls .btn {
+                flex: 1;
+                max-width: 200px;
+            }
+
+            .instructions {
+                width: 100%;
+            }
+
+            .game-container {
+                padding: 1rem;
+            }
+
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .game-info {
+                gap: 0.5rem;
+            }
+
+            .stat {
+                padding: 0.3rem 0.8rem;
+            }
+
+            .stat-label {
+                font-size: 0.7rem;
+            }
+
+            .stat-value {
+                font-size: 1.1rem;
+            }
+
+            .navbar {
+                padding: 0.5rem 1rem;
+            }
+
+            .logo {
+                font-size: 1.2rem;
+            }
+        }
+
+        @media (max-width: 500px) {
+            .tower-option {
+                width: 100%;
+            }
+
+            .tower-name {
+                font-size: 0.9rem;
+            }
+
+            .tower-cost {
+                font-size: 0.8rem;
+            }
         }
     </style>
 </head>
@@ -790,11 +886,32 @@
             requestAnimationFrame(gameLoop);
         }
 
-        // Event listeners
-        canvas.addEventListener('click', (e) => {
+        // Handle canvas scaling for touch/click
+        function getCanvasCoords(e) {
             const rect = canvas.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
+            const scaleX = canvas.width / rect.width;
+            const scaleY = canvas.height / rect.height;
+
+            let clientX, clientY;
+            if (e.touches && e.touches.length > 0) {
+                clientX = e.touches[0].clientX;
+                clientY = e.touches[0].clientY;
+            } else {
+                clientX = e.clientX;
+                clientY = e.clientY;
+            }
+
+            return {
+                x: (clientX - rect.left) * scaleX,
+                y: (clientY - rect.top) * scaleY
+            };
+        }
+
+        function handleCanvasClick(e) {
+            e.preventDefault();
+            const coords = getCanvasCoords(e);
+            const x = coords.x;
+            const y = coords.y;
 
             const gx = Math.floor(x / gridSize);
             const gy = Math.floor(y / gridSize);
@@ -824,15 +941,17 @@
             });
             grid[gx][gy] = 2;
             updateUI();
-        });
+        }
+
+        // Event listeners
+        canvas.addEventListener('click', handleCanvasClick);
+        canvas.addEventListener('touchstart', handleCanvasClick, { passive: false });
 
         canvas.addEventListener('mousemove', (e) => {
-            const rect = canvas.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
+            const coords = getCanvasCoords(e);
 
             towers.forEach(tower => {
-                const dist = Math.sqrt((x - tower.x) ** 2 + (y - tower.y) ** 2);
+                const dist = Math.sqrt((coords.x - tower.x) ** 2 + (coords.y - tower.y) ** 2);
                 tower.showRange = dist < 30;
             });
         });

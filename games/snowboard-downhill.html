@@ -1,0 +1,1003 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+    <title>Snowboard Downhill | Crucible Therapy</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Libre+Baskerville:ital,wght@0,400;0,700;1,400&family=Source+Sans+Pro:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: 'Source Sans Pro', sans-serif;
+            background: linear-gradient(180deg, #1a237e 0%, #3949ab 30%, #7986cb 60%, #c5cae9 100%);
+            min-height: 100vh;
+            color: #333;
+            overflow: hidden;
+        }
+
+        .navbar {
+            background-color: rgba(0, 0, 0, 0.3);
+            padding: 0.75rem 1.5rem;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 100;
+        }
+
+        .logo {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 1.3rem;
+            color: #fff;
+            text-decoration: none;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .back-link {
+            color: #fff;
+            text-decoration: none;
+            text-shadow: 1px 1px 2px rgba(0,0,0,0.3);
+        }
+
+        .back-link:hover {
+            text-decoration: underline;
+        }
+
+        .game-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding-top: 50px;
+        }
+
+        #gameCanvas {
+            border: none;
+            box-shadow: 0 0 30px rgba(0,0,0,0.3);
+            max-width: 100%;
+            max-height: calc(100vh - 100px);
+        }
+
+        .game-ui {
+            position: fixed;
+            top: 55px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 1rem;
+            z-index: 50;
+        }
+
+        .stat {
+            background: rgba(0, 0, 0, 0.5);
+            padding: 0.4rem 1rem;
+            border-radius: 15px;
+            text-align: center;
+            color: #fff;
+        }
+
+        .stat-label {
+            font-size: 0.65rem;
+            opacity: 0.8;
+            text-transform: uppercase;
+        }
+
+        .stat-value {
+            font-size: 1.2rem;
+            font-weight: bold;
+            color: #ffd700;
+        }
+
+        .start-screen, .game-over-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: rgba(26, 35, 126, 0.95);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            z-index: 200;
+            padding: 1rem;
+        }
+
+        .start-screen h1, .game-over-screen h1 {
+            font-family: 'Libre Baskerville', serif;
+            font-size: 2.5rem;
+            color: #fff;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin-bottom: 1rem;
+            text-align: center;
+        }
+
+        .start-screen p, .game-over-screen p {
+            font-size: 1.1rem;
+            color: #fff;
+            margin-bottom: 1.5rem;
+            text-align: center;
+            max-width: 400px;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 30px;
+            cursor: pointer;
+            font-size: 1.2rem;
+            font-weight: bold;
+            transition: all 0.2s;
+            background: #4CAF50;
+            color: white;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.3);
+        }
+
+        .btn:hover, .btn:active {
+            transform: translateY(-2px);
+            box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+        }
+
+        .controls-info {
+            margin-top: 1.5rem;
+            padding: 1rem 1.5rem;
+            background: rgba(255,255,255,0.15);
+            border-radius: 10px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .controls-info h3 {
+            margin-bottom: 0.5rem;
+        }
+
+        .final-score {
+            font-size: 3.5rem;
+            font-weight: bold;
+            color: #ffd700;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+            margin: 0.5rem 0;
+        }
+
+        .hidden {
+            display: none !important;
+        }
+
+        /* Mobile controls */
+        .mobile-controls {
+            display: none;
+            position: fixed;
+            bottom: 15px;
+            left: 0;
+            right: 0;
+            padding: 0 15px;
+            z-index: 100;
+        }
+
+        .control-row {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 400px;
+            margin: 0 auto;
+        }
+
+        .control-btn {
+            width: 65px;
+            height: 65px;
+            border-radius: 50%;
+            border: 3px solid rgba(255,255,255,0.7);
+            background: rgba(255,255,255,0.25);
+            color: #fff;
+            font-size: 22px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            user-select: none;
+            -webkit-user-select: none;
+            touch-action: manipulation;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .control-btn:active {
+            background: rgba(255,255,255,0.45);
+            transform: scale(0.95);
+        }
+
+        .jump-btn {
+            background: rgba(76, 175, 80, 0.5);
+            border-color: rgba(76, 175, 80, 0.8);
+        }
+
+        .mobile-instructions {
+            display: none;
+        }
+
+        @media (max-width: 768px) {
+            .mobile-controls {
+                display: block;
+            }
+
+            .game-ui {
+                gap: 0.5rem;
+            }
+
+            .stat {
+                padding: 0.25rem 0.6rem;
+            }
+
+            .stat-label {
+                font-size: 0.55rem;
+            }
+
+            .stat-value {
+                font-size: 0.95rem;
+            }
+
+            .controls-info {
+                display: none;
+            }
+
+            .mobile-instructions {
+                display: block !important;
+                margin-top: 1.5rem;
+                padding: 1rem;
+                background: rgba(255,255,255,0.15);
+                border-radius: 10px;
+                color: #fff;
+                text-align: center;
+            }
+
+            .start-screen h1, .game-over-screen h1 {
+                font-size: 1.8rem;
+            }
+
+            .start-screen p, .game-over-screen p {
+                font-size: 1rem;
+            }
+
+            .navbar {
+                padding: 0.5rem 1rem;
+            }
+
+            .logo {
+                font-size: 1.1rem;
+            }
+
+            .final-score {
+                font-size: 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <a href="../index.html" class="logo">Crucible Therapy</a>
+        <a href="../index.html#quizzes" class="back-link">← Back</a>
+    </nav>
+
+    <div class="game-ui">
+        <div class="stat">
+            <div class="stat-label">Score</div>
+            <div class="stat-value" id="score">0</div>
+        </div>
+        <div class="stat">
+            <div class="stat-label">Speed</div>
+            <div class="stat-value" id="speed">0</div>
+        </div>
+        <div class="stat">
+            <div class="stat-label">Distance</div>
+            <div class="stat-value" id="distance">0m</div>
+        </div>
+    </div>
+
+    <div class="game-container">
+        <canvas id="gameCanvas" width="900" height="500"></canvas>
+    </div>
+
+    <div id="startScreen" class="start-screen">
+        <h1>⛷️ Snowboard Downhill</h1>
+        <p>Race down the mountain side-view style! Dodge trees and rocks, collect coins!</p>
+        <button class="btn" onclick="startGame()">Start Game</button>
+        <div class="controls-info">
+            <h3>Controls</h3>
+            <p>↑ ↓ Arrow Keys: Move up/down</p>
+            <p>Space or ↑↑: Jump over obstacles</p>
+        </div>
+        <div class="mobile-instructions">
+            <h3>Touch Controls</h3>
+            <p>Use on-screen buttons to move and jump</p>
+        </div>
+    </div>
+
+    <div id="gameOverScreen" class="game-over-screen hidden">
+        <h1>Wipeout!</h1>
+        <div class="final-score" id="finalScore">0</div>
+        <p>Distance: <span id="finalDistance">0</span>m</p>
+        <button class="btn" onclick="startGame()">Try Again</button>
+    </div>
+
+    <div class="mobile-controls" id="mobileControls">
+        <div class="control-row">
+            <div class="direction-btns" style="display: flex; flex-direction: column; gap: 8px;">
+                <button class="control-btn" id="upBtn">↑</button>
+                <button class="control-btn" id="downBtn">↓</button>
+            </div>
+            <button class="control-btn jump-btn" id="jumpBtn">JUMP</button>
+        </div>
+    </div>
+
+    <script>
+        const canvas = document.getElementById('gameCanvas');
+        const ctx = canvas.getContext('2d');
+
+        // Game state
+        let gameRunning = false;
+        let score = 0;
+        let distance = 0;
+        let speed = 8;
+        let maxSpeed = 18;
+
+        // Player
+        const player = {
+            x: 150,
+            y: 250,
+            width: 60,
+            height: 40,
+            vy: 0,
+            jumping: false,
+            jumpHeight: 0,
+            groundY: 250
+        };
+
+        // Game objects
+        let obstacles = [];
+        let coins = [];
+        let mountains = [];
+        let trees = [];
+        let snowParticles = [];
+
+        // Input
+        const keys = {};
+
+        // Initialize background elements
+        function initBackground() {
+            // Mountains (parallax layers)
+            mountains = [];
+            for (let i = 0; i < 5; i++) {
+                mountains.push({
+                    x: i * 250,
+                    height: 150 + Math.random() * 100,
+                    layer: Math.floor(Math.random() * 3)
+                });
+            }
+
+            // Background trees
+            trees = [];
+            for (let i = 0; i < 8; i++) {
+                trees.push({
+                    x: i * 150 + Math.random() * 50,
+                    y: 80 + Math.random() * 60,
+                    size: 30 + Math.random() * 20,
+                    layer: Math.floor(Math.random() * 2)
+                });
+            }
+
+            // Snow particles
+            snowParticles = [];
+            for (let i = 0; i < 60; i++) {
+                snowParticles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    size: Math.random() * 3 + 1,
+                    speed: Math.random() * 2 + 2
+                });
+            }
+        }
+
+        function spawnObstacle() {
+            const types = ['rock', 'tree', 'stump'];
+            const type = types[Math.floor(Math.random() * types.length)];
+
+            const laneY = 220 + Math.random() * 100;
+
+            obstacles.push({
+                x: canvas.width + 50,
+                y: laneY,
+                type: type,
+                width: type === 'tree' ? 35 : 45,
+                height: type === 'tree' ? 70 : 35,
+                jumpable: type !== 'tree'
+            });
+        }
+
+        function spawnCoin() {
+            const laneY = 200 + Math.random() * 120;
+            coins.push({
+                x: canvas.width + 30,
+                y: laneY - 20,
+                radius: 12,
+                collected: false
+            });
+        }
+
+        function updatePlayer() {
+            // Vertical movement
+            if (keys['ArrowUp'] && !player.jumping) {
+                player.vy = -5;
+            } else if (keys['ArrowDown']) {
+                player.vy = 5;
+            } else {
+                player.vy *= 0.85;
+            }
+
+            // Jump
+            if ((keys[' '] || keys['Space']) && !player.jumping) {
+                player.jumping = true;
+                player.jumpHeight = 0;
+            }
+
+            // Jump physics
+            if (player.jumping) {
+                player.jumpHeight += 8;
+                if (player.jumpHeight >= 80) {
+                    player.jumping = false;
+                }
+            } else if (player.jumpHeight > 0) {
+                player.jumpHeight -= 6;
+                if (player.jumpHeight < 0) player.jumpHeight = 0;
+            }
+
+            // Apply movement
+            player.y += player.vy;
+
+            // Boundaries (stay on slope)
+            if (player.y < 180) player.y = 180;
+            if (player.y > 340) player.y = 340;
+
+            player.groundY = player.y;
+        }
+
+        function updateObstacles() {
+            // Move obstacles
+            for (let i = obstacles.length - 1; i >= 0; i--) {
+                const obs = obstacles[i];
+                obs.x -= speed;
+
+                // Collision check
+                const playerBottom = player.groundY + player.height;
+                const playerActualY = player.groundY - player.jumpHeight;
+
+                // Only collide if not jumping high enough
+                if (player.jumpHeight < 40 || !obs.jumpable) {
+                    if (player.x + 30 > obs.x &&
+                        player.x < obs.x + obs.width &&
+                        playerBottom > obs.y &&
+                        playerActualY < obs.y + obs.height) {
+                        gameOver();
+                        return;
+                    }
+                }
+
+                // Remove off-screen
+                if (obs.x < -60) {
+                    obstacles.splice(i, 1);
+                    score += 15;
+                }
+            }
+
+            // Move coins
+            for (let i = coins.length - 1; i >= 0; i--) {
+                const coin = coins[i];
+                coin.x -= speed;
+
+                // Collection check
+                const playerCenterX = player.x + 30;
+                const playerCenterY = player.groundY - player.jumpHeight + 20;
+                const dx = playerCenterX - coin.x;
+                const dy = playerCenterY - coin.y;
+                const dist = Math.sqrt(dx * dx + dy * dy);
+
+                if (dist < coin.radius + 25 && !coin.collected) {
+                    coin.collected = true;
+                    score += 50;
+                }
+
+                // Remove
+                if (coin.x < -30 || coin.collected) {
+                    coins.splice(i, 1);
+                }
+            }
+        }
+
+        function updateBackground() {
+            // Mountains parallax
+            mountains.forEach(m => {
+                const parallaxSpeed = 0.2 + m.layer * 0.15;
+                m.x -= speed * parallaxSpeed;
+                if (m.x < -300) {
+                    m.x = canvas.width + 50;
+                    m.height = 150 + Math.random() * 100;
+                }
+            });
+
+            // Trees parallax
+            trees.forEach(t => {
+                const parallaxSpeed = 0.4 + t.layer * 0.2;
+                t.x -= speed * parallaxSpeed;
+                if (t.x < -50) {
+                    t.x = canvas.width + 50;
+                    t.y = 80 + Math.random() * 60;
+                }
+            });
+
+            // Snow
+            snowParticles.forEach(s => {
+                s.x -= speed + s.speed;
+                s.y += Math.sin(s.x * 0.02) * 0.5;
+                if (s.x < -10) {
+                    s.x = canvas.width + 10;
+                    s.y = Math.random() * canvas.height;
+                }
+            });
+        }
+
+        function drawBackground() {
+            // Sky gradient
+            const gradient = ctx.createLinearGradient(0, 0, 0, canvas.height);
+            gradient.addColorStop(0, '#1a237e');
+            gradient.addColorStop(0.3, '#3949ab');
+            gradient.addColorStop(0.6, '#7986cb');
+            gradient.addColorStop(1, '#c5cae9');
+            ctx.fillStyle = gradient;
+            ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+            // Sun
+            ctx.fillStyle = '#fff59d';
+            ctx.beginPath();
+            ctx.arc(canvas.width - 80, 60, 35, 0, Math.PI * 2);
+            ctx.fill();
+            ctx.fillStyle = '#ffeb3b';
+            ctx.beginPath();
+            ctx.arc(canvas.width - 80, 60, 28, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Mountains
+            mountains.sort((a, b) => a.layer - b.layer);
+            mountains.forEach(m => {
+                const alpha = 0.3 + m.layer * 0.2;
+                ctx.fillStyle = `rgba(100, 120, 180, ${alpha})`;
+                ctx.beginPath();
+                ctx.moveTo(m.x - 100, canvas.height * 0.5);
+                ctx.lineTo(m.x + 50, canvas.height * 0.5 - m.height);
+                ctx.lineTo(m.x + 200, canvas.height * 0.5);
+                ctx.closePath();
+                ctx.fill();
+
+                // Snow cap
+                ctx.fillStyle = `rgba(255, 255, 255, ${alpha + 0.2})`;
+                ctx.beginPath();
+                ctx.moveTo(m.x + 20, canvas.height * 0.5 - m.height + 30);
+                ctx.lineTo(m.x + 50, canvas.height * 0.5 - m.height);
+                ctx.lineTo(m.x + 80, canvas.height * 0.5 - m.height + 30);
+                ctx.closePath();
+                ctx.fill();
+            });
+
+            // Background trees
+            trees.forEach(t => {
+                const alpha = 0.4 + t.layer * 0.3;
+                ctx.fillStyle = `rgba(30, 80, 50, ${alpha})`;
+                ctx.beginPath();
+                ctx.moveTo(t.x, t.y + t.size);
+                ctx.lineTo(t.x + t.size * 0.5, t.y);
+                ctx.lineTo(t.x + t.size, t.y + t.size);
+                ctx.closePath();
+                ctx.fill();
+            });
+        }
+
+        function drawSlope() {
+            // Main slope
+            const slopeGradient = ctx.createLinearGradient(0, 180, 0, canvas.height);
+            slopeGradient.addColorStop(0, '#e3f2fd');
+            slopeGradient.addColorStop(0.5, '#bbdefb');
+            slopeGradient.addColorStop(1, '#90caf9');
+            ctx.fillStyle = slopeGradient;
+            ctx.fillRect(0, 180, canvas.width, canvas.height - 180);
+
+            // Slope texture lines
+            ctx.strokeStyle = 'rgba(255, 255, 255, 0.3)';
+            ctx.lineWidth = 1;
+            for (let i = 0; i < 15; i++) {
+                const y = 200 + i * 25;
+                const offset = (distance * 2 + i * 50) % canvas.width;
+                ctx.beginPath();
+                ctx.moveTo(-offset, y);
+                ctx.lineTo(canvas.width, y + 20);
+                ctx.stroke();
+            }
+
+            // Snow spray effect behind player
+            ctx.fillStyle = 'rgba(255, 255, 255, 0.6)';
+            for (let i = 0; i < 8; i++) {
+                const sprayX = player.x - 20 - Math.random() * 30;
+                const sprayY = player.groundY + 30 + Math.random() * 20;
+                ctx.beginPath();
+                ctx.arc(sprayX, sprayY, Math.random() * 4 + 2, 0, Math.PI * 2);
+                ctx.fill();
+            }
+        }
+
+        function drawSnow() {
+            ctx.fillStyle = '#fff';
+            snowParticles.forEach(s => {
+                ctx.beginPath();
+                ctx.arc(s.x, s.y, s.size, 0, Math.PI * 2);
+                ctx.fill();
+            });
+        }
+
+        function drawObstacles() {
+            obstacles.forEach(obs => {
+                if (obs.type === 'rock') {
+                    // Shadow
+                    ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
+                    ctx.beginPath();
+                    ctx.ellipse(obs.x + obs.width/2 + 5, obs.y + obs.height + 5, obs.width/2, 10, 0, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    // Rock
+                    ctx.fillStyle = '#607d8b';
+                    ctx.beginPath();
+                    ctx.ellipse(obs.x + obs.width/2, obs.y + obs.height/2, obs.width/2, obs.height/2, 0, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    // Highlight
+                    ctx.fillStyle = '#90a4ae';
+                    ctx.beginPath();
+                    ctx.ellipse(obs.x + obs.width/3, obs.y + obs.height/3, obs.width/4, obs.height/4, 0, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    // Snow on top
+                    ctx.fillStyle = '#fff';
+                    ctx.beginPath();
+                    ctx.ellipse(obs.x + obs.width/2, obs.y, obs.width/3, 8, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                } else if (obs.type === 'tree') {
+                    // Shadow
+                    ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
+                    ctx.beginPath();
+                    ctx.ellipse(obs.x + obs.width/2 + 5, obs.y + obs.height + 5, 20, 8, 0, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    // Trunk
+                    ctx.fillStyle = '#5d4037';
+                    ctx.fillRect(obs.x + obs.width/2 - 5, obs.y + obs.height - 20, 10, 25);
+
+                    // Tree layers
+                    ctx.fillStyle = '#2e7d32';
+                    for (let i = 0; i < 3; i++) {
+                        const layerY = obs.y + i * 20;
+                        const layerWidth = obs.width - i * 8;
+                        ctx.beginPath();
+                        ctx.moveTo(obs.x + obs.width/2, layerY);
+                        ctx.lineTo(obs.x + obs.width/2 - layerWidth/2, layerY + 25);
+                        ctx.lineTo(obs.x + obs.width/2 + layerWidth/2, layerY + 25);
+                        ctx.closePath();
+                        ctx.fill();
+                    }
+
+                    // Snow on tree
+                    ctx.fillStyle = '#fff';
+                    ctx.beginPath();
+                    ctx.moveTo(obs.x + obs.width/2, obs.y);
+                    ctx.lineTo(obs.x + obs.width/2 - 10, obs.y + 15);
+                    ctx.lineTo(obs.x + obs.width/2 + 10, obs.y + 15);
+                    ctx.closePath();
+                    ctx.fill();
+                } else if (obs.type === 'stump') {
+                    // Shadow
+                    ctx.fillStyle = 'rgba(0, 0, 0, 0.2)';
+                    ctx.beginPath();
+                    ctx.ellipse(obs.x + obs.width/2 + 3, obs.y + obs.height + 3, obs.width/2, 8, 0, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    // Stump
+                    ctx.fillStyle = '#6d4c41';
+                    ctx.beginPath();
+                    ctx.ellipse(obs.x + obs.width/2, obs.y + obs.height/2, obs.width/2, obs.height/2, 0, 0, Math.PI * 2);
+                    ctx.fill();
+
+                    // Rings
+                    ctx.strokeStyle = '#5d4037';
+                    ctx.lineWidth = 2;
+                    ctx.beginPath();
+                    ctx.arc(obs.x + obs.width/2, obs.y + obs.height/2, obs.width/4, 0, Math.PI * 2);
+                    ctx.stroke();
+
+                    // Snow
+                    ctx.fillStyle = '#fff';
+                    ctx.beginPath();
+                    ctx.ellipse(obs.x + obs.width/2, obs.y, obs.width/3, 6, 0, 0, Math.PI * 2);
+                    ctx.fill();
+                }
+            });
+        }
+
+        function drawCoins() {
+            coins.forEach(coin => {
+                // Glow
+                ctx.fillStyle = 'rgba(255, 215, 0, 0.3)';
+                ctx.beginPath();
+                ctx.arc(coin.x, coin.y, coin.radius + 5, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Coin
+                ctx.fillStyle = '#ffd700';
+                ctx.beginPath();
+                ctx.arc(coin.x, coin.y, coin.radius, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Shine
+                ctx.fillStyle = '#fff59d';
+                ctx.beginPath();
+                ctx.arc(coin.x - 3, coin.y - 3, coin.radius * 0.4, 0, Math.PI * 2);
+                ctx.fill();
+
+                // Dollar sign
+                ctx.fillStyle = '#ffa000';
+                ctx.font = 'bold 12px Arial';
+                ctx.textAlign = 'center';
+                ctx.textBaseline = 'middle';
+                ctx.fillText('$', coin.x, coin.y);
+            });
+        }
+
+        function drawPlayer() {
+            const drawY = player.groundY - player.jumpHeight;
+
+            ctx.save();
+            ctx.translate(player.x + 30, drawY + 20);
+
+            // Lean forward slightly
+            ctx.rotate(-0.15);
+
+            // Shadow (only when grounded)
+            if (player.jumpHeight < 10) {
+                ctx.fillStyle = 'rgba(0, 0, 0, 0.3)';
+                ctx.beginPath();
+                ctx.ellipse(0, 25 + player.jumpHeight, 25, 8, 0, 0, Math.PI * 2);
+                ctx.fill();
+            }
+
+            // Snowboard
+            ctx.fillStyle = '#e91e63';
+            ctx.beginPath();
+            ctx.ellipse(0, 18, 30, 6, 0, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Board design
+            ctx.fillStyle = '#f48fb1';
+            ctx.beginPath();
+            ctx.ellipse(0, 18, 22, 3, 0, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Legs
+            ctx.fillStyle = '#333';
+            ctx.fillRect(-8, 5, 6, 15);
+            ctx.fillRect(2, 5, 6, 15);
+
+            // Body/jacket
+            ctx.fillStyle = '#2196f3';
+            ctx.beginPath();
+            ctx.ellipse(0, -5, 14, 18, 0, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Arms out for balance
+            ctx.strokeStyle = '#2196f3';
+            ctx.lineWidth = 5;
+            ctx.beginPath();
+            ctx.moveTo(-12, -8);
+            ctx.lineTo(-28, -15);
+            ctx.moveTo(12, -8);
+            ctx.lineTo(28, 0);
+            ctx.stroke();
+
+            // Gloves
+            ctx.fillStyle = '#333';
+            ctx.beginPath();
+            ctx.arc(-28, -15, 5, 0, Math.PI * 2);
+            ctx.arc(28, 0, 5, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Head
+            ctx.fillStyle = '#ffccbc';
+            ctx.beginPath();
+            ctx.arc(0, -28, 10, 0, Math.PI * 2);
+            ctx.fill();
+
+            // Helmet
+            ctx.fillStyle = '#f44336';
+            ctx.beginPath();
+            ctx.arc(0, -31, 10, Math.PI, 0, false);
+            ctx.fill();
+
+            // Goggles
+            ctx.fillStyle = '#333';
+            ctx.fillRect(-9, -30, 18, 6);
+            ctx.fillStyle = '#64b5f6';
+            ctx.fillRect(-7, -29, 6, 4);
+            ctx.fillRect(1, -29, 6, 4);
+
+            ctx.restore();
+        }
+
+        function updateUI() {
+            document.getElementById('score').textContent = score;
+            document.getElementById('speed').textContent = Math.round(speed * 5);
+            document.getElementById('distance').textContent = Math.round(distance) + 'm';
+        }
+
+        function gameOver() {
+            gameRunning = false;
+            document.getElementById('finalScore').textContent = score;
+            document.getElementById('finalDistance').textContent = Math.round(distance);
+            document.getElementById('gameOverScreen').classList.remove('hidden');
+        }
+
+        function startGame() {
+            score = 0;
+            distance = 0;
+            speed = 8;
+            player.y = 250;
+            player.groundY = 250;
+            player.vy = 0;
+            player.jumping = false;
+            player.jumpHeight = 0;
+            obstacles = [];
+            coins = [];
+
+            initBackground();
+
+            document.getElementById('startScreen').classList.add('hidden');
+            document.getElementById('gameOverScreen').classList.add('hidden');
+
+            gameRunning = true;
+            gameLoop();
+        }
+
+        let spawnTimer = 0;
+
+        function gameLoop() {
+            if (!gameRunning) return;
+
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+            // Update
+            updatePlayer();
+            updateObstacles();
+            updateBackground();
+
+            // Increase speed
+            if (speed < maxSpeed) {
+                speed += 0.003;
+            }
+
+            distance += speed * 0.05;
+
+            // Spawn
+            spawnTimer++;
+            if (spawnTimer > 70 - speed * 2) {
+                spawnTimer = 0;
+                if (Math.random() < 0.7) {
+                    spawnObstacle();
+                }
+                if (Math.random() < 0.4) {
+                    spawnCoin();
+                }
+            }
+
+            // Draw
+            drawBackground();
+            drawSlope();
+            drawSnow();
+            drawObstacles();
+            drawCoins();
+            drawPlayer();
+
+            updateUI();
+
+            requestAnimationFrame(gameLoop);
+        }
+
+        // Keyboard events
+        document.addEventListener('keydown', (e) => {
+            keys[e.key] = true;
+            if (['ArrowUp', 'ArrowDown', ' '].includes(e.key)) {
+                e.preventDefault();
+            }
+        });
+
+        document.addEventListener('keyup', (e) => {
+            keys[e.key] = false;
+        });
+
+        // Mobile controls
+        function setupMobileControls() {
+            const upBtn = document.getElementById('upBtn');
+            const downBtn = document.getElementById('downBtn');
+            const jumpBtn = document.getElementById('jumpBtn');
+
+            document.addEventListener('touchmove', (e) => {
+                if (gameRunning) e.preventDefault();
+            }, { passive: false });
+
+            upBtn.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                keys['ArrowUp'] = true;
+            });
+            upBtn.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                keys['ArrowUp'] = false;
+            });
+
+            downBtn.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                keys['ArrowDown'] = true;
+            });
+            downBtn.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                keys['ArrowDown'] = false;
+            });
+
+            jumpBtn.addEventListener('touchstart', (e) => {
+                e.preventDefault();
+                keys[' '] = true;
+            });
+            jumpBtn.addEventListener('touchend', (e) => {
+                e.preventDefault();
+                keys[' '] = false;
+            });
+        }
+
+        // Responsive canvas
+        function resizeCanvas() {
+            const maxWidth = Math.min(900, window.innerWidth - 20);
+            const maxHeight = window.innerHeight - 120;
+            const aspectRatio = 900 / 500;
+
+            let newWidth = maxWidth;
+            let newHeight = newWidth / aspectRatio;
+
+            if (newHeight > maxHeight) {
+                newHeight = maxHeight;
+                newWidth = newHeight * aspectRatio;
+            }
+
+            canvas.style.width = newWidth + 'px';
+            canvas.style.height = newHeight + 'px';
+        }
+
+        window.addEventListener('resize', resizeCanvas);
+        window.addEventListener('orientationchange', () => setTimeout(resizeCanvas, 100));
+
+        // Init
+        initBackground();
+        setupMobileControls();
+        resizeCanvas();
+    </script>
+</body>
+</html>
