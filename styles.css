@@ -1775,6 +1775,54 @@ a.concept-card.clickable:hover .learn-more {
     }
 }
 
+/* ===== Simple Hero Section ===== */
+.simple-hero {
+    padding: calc(80px + var(--spacing-xl)) 0 var(--spacing-xl);
+    background: linear-gradient(135deg, var(--color-warm-beige) 0%, var(--color-warm-cream) 100%);
+    text-align: center;
+    border-bottom: 1px solid var(--color-warm-tan);
+}
+
+.simple-hero h1 {
+    font-size: 3rem;
+    color: var(--color-primary);
+    margin-bottom: var(--spacing-md);
+    letter-spacing: -0.5px;
+}
+
+.simple-hero .hero-tagline {
+    font-size: 1.25rem;
+    color: var(--color-text);
+    max-width: 700px;
+    margin: 0 auto;
+    line-height: 1.7;
+}
+
+/* ===== Enhanced Article Cards ===== */
+.article-card {
+    border-left: 3px solid transparent;
+    transition: all var(--transition-normal);
+}
+
+.article-card:hover {
+    border-left-color: var(--color-primary);
+}
+
+/* Featured article card - full width */
+.article-card.featured.with-image {
+    grid-column: 1 / -1;
+    background: linear-gradient(135deg, var(--color-warm-cream) 0%, var(--color-white) 100%);
+    border-left: 4px solid var(--color-primary);
+    padding: var(--spacing-xl);
+}
+
+.article-card.featured.with-image .article-image {
+    width: 100px;
+    height: 100px;
+    border-radius: 50%;
+    border: 3px solid var(--color-primary);
+}
+
 /* ===== Homepage Book Cards with Covers ===== */
 .book-card {
     display: flex;
@@ -1784,14 +1832,20 @@ a.concept-card.clickable:hover .learn-more {
 .book-cover-link {
     display: flex;
     justify-content: center;
+    align-items: center;
     padding: var(--spacing-lg);
     background-color: var(--color-warm-cream);
     border-radius: var(--radius-lg) var(--radius-lg) 0 0;
+    min-height: 200px;
+    max-height: 200px;
+    overflow: hidden;
 }
 
 .book-card .book-cover {
+    max-width: 140px;
+    max-height: 180px;
     width: auto;
-    height: 180px;
+    height: auto;
     object-fit: contain;
     border-radius: var(--radius-sm);
     box-shadow: var(--shadow-sm);
@@ -1915,13 +1969,43 @@ a.concept-card.clickable:hover .learn-more {
         max-width: 200px;
     }
 
+    .book-cover-link {
+        min-height: 160px;
+        max-height: 160px;
+    }
+
     .book-card .book-cover {
-        height: 140px;
+        max-width: 110px;
+        max-height: 140px;
     }
 }
 
 @media (max-width: 480px) {
+    .book-cover-link {
+        min-height: 140px;
+        max-height: 140px;
+    }
+
     .book-card .book-cover {
-        height: 120px;
+        max-width: 90px;
+        max-height: 120px;
+    }
+
+    .simple-hero h1 {
+        font-size: 2rem;
+    }
+
+    .simple-hero .hero-tagline {
+        font-size: 1rem;
+    }
+
+    .article-card.featured.with-image {
+        flex-direction: column;
+        text-align: center;
+    }
+
+    .article-card.featured.with-image .article-image {
+        width: 80px;
+        height: 80px;
     }
 }
