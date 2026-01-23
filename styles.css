@@ -606,33 +606,35 @@ a.feature-card.clickable:hover .learn-more {
 }
 
 .article-card {
+    display: block;
     background-color: var(--color-white);
     border-radius: var(--radius-lg);
     padding: var(--spacing-lg);
     box-shadow: var(--shadow-sm);
     transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
 }
 
 .article-card:hover {
     transform: translateY(-3px);
     box-shadow: var(--shadow-md);
+    color: inherit;
 }
 
 .article-card h3 {
     margin-bottom: var(--spacing-sm);
-}
-
-.article-card h3 a {
     color: var(--color-text-dark);
 }
 
-.article-card h3 a:hover {
+.article-card:hover h3 {
     color: var(--color-primary);
 }
 
 .article-card p {
     color: var(--color-text-light);
-    margin-bottom: var(--spacing-md);
+    margin-bottom: 0;
 }
 
 .article-meta {
