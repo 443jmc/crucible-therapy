@@ -508,6 +508,91 @@ const quizData = {
             { min: 27, max: 34, level: "Gridlock Navigator", description: "You have a working understanding of gridlock as a growth mechanism and can often use stuck points productively. Continue developing your ability to 'hold onto yourself' during the most challenging moments. Notice how your own growth affects the gridlock dynamic - often when one partner becomes more differentiated, the entire pattern shifts." },
             { min: 35, max: 40, level: "Gridlock Master", description: "You demonstrate sophisticated understanding of gridlock and strong capacity to use it for growth. You likely see your toughest relationship moments as your greatest teachers. At this level, you can often help shift gridlock simply by maintaining your own differentiation. Continue refining your practice and consider how your growth might inspire (not force) your partner's development." }
         ]
+    },
+    catquiz: {
+        title: "What Kind of Cat Should You Own?",
+        type: "personality",
+        description: "Answer these questions to discover which cat breed best matches your lifestyle and personality.",
+        questions: [
+            {
+                question: "How would you describe your home environment?",
+                options: [
+                    { text: "Quiet and calm - I value peace and relaxation", score: "persian" },
+                    { text: "Active and busy - there's always something happening", score: "bengal" },
+                    { text: "Cozy and social - I love having people over", score: "ragdoll" },
+                    { text: "Small but comfortable - I live in an apartment", score: "russian" }
+                ]
+            },
+            {
+                question: "How much time can you dedicate to grooming a cat?",
+                options: [
+                    { text: "Plenty - I'd enjoy daily brushing sessions", score: "persian" },
+                    { text: "Minimal - I prefer low-maintenance pets", score: "bengal" },
+                    { text: "Moderate - weekly grooming is fine", score: "ragdoll" },
+                    { text: "Very little - the less grooming the better", score: "russian" }
+                ]
+            },
+            {
+                question: "What's your ideal way to interact with a cat?",
+                options: [
+                    { text: "Quiet cuddles on the couch", score: "persian" },
+                    { text: "Active play sessions and games", score: "bengal" },
+                    { text: "Following me around and being my shadow", score: "ragdoll" },
+                    { text: "Independent companionship - nearby but not clingy", score: "russian" }
+                ]
+            },
+            {
+                question: "How do you feel about a vocal cat?",
+                options: [
+                    { text: "I prefer a quiet, peaceful cat", score: "persian" },
+                    { text: "I love a chatty cat who 'talks' to me", score: "bengal" },
+                    { text: "Soft, gentle sounds are nice", score: "ragdoll" },
+                    { text: "Occasional meows are fine, but not constant", score: "russian" }
+                ]
+            },
+            {
+                question: "Do you have children or other pets?",
+                options: [
+                    { text: "No, it's just me (or adults only)", score: "persian" },
+                    { text: "Yes, and they're very active!", score: "bengal" },
+                    { text: "Yes, and I need a gentle, patient cat", score: "ragdoll" },
+                    { text: "Maybe other cats, but a calm household", score: "russian" }
+                ]
+            },
+            {
+                question: "What personality trait do you value most in a cat?",
+                options: [
+                    { text: "Dignified and regal", score: "persian" },
+                    { text: "Adventurous and athletic", score: "bengal" },
+                    { text: "Affectionate and docile", score: "ragdoll" },
+                    { text: "Intelligent and loyal", score: "russian" }
+                ]
+            },
+            {
+                question: "How do you feel about a cat that needs mental stimulation?",
+                options: [
+                    { text: "I'd prefer a more relaxed cat", score: "persian" },
+                    { text: "I love puzzle toys and teaching tricks!", score: "bengal" },
+                    { text: "Moderate - some play but mostly cuddles", score: "ragdoll" },
+                    { text: "I can provide some, but not constantly", score: "russian" }
+                ]
+            },
+            {
+                question: "What's your activity level at home?",
+                options: [
+                    { text: "Low-key - I enjoy quiet evenings", score: "persian" },
+                    { text: "High energy - I'm always doing something", score: "bengal" },
+                    { text: "Moderate - I like balance", score: "ragdoll" },
+                    { text: "Variable - sometimes busy, sometimes relaxed", score: "russian" }
+                ]
+            }
+        ],
+        results: {
+            persian: { name: "Persian", description: "You're a perfect match for a Persian cat! These elegant, gentle cats love peaceful environments and quiet companionship. With their luxurious long coats and sweet personalities, Persians are ideal for someone who enjoys a calm home and doesn't mind regular grooming sessions. They're affectionate without being demanding and make wonderful lap cats." },
+            bengal: { name: "Bengal", description: "A Bengal cat would be your ideal companion! These stunning, athletic cats have wild-looking spotted coats and boundless energy. Bengals are incredibly intelligent, love to play, and need an owner who can keep up with their active lifestyle. They're vocal, curious, and will keep you entertained with their antics. Perfect for someone who wants an interactive, dog-like cat!" },
+            ragdoll: { name: "Ragdoll", description: "A Ragdoll cat is your perfect match! Known for going limp when picked up (hence the name), these gentle giants are incredibly affectionate and love following their owners around. They're great with children and other pets, have semi-long coats that are easier to maintain than they look, and are known for their calm, docile nature. Ideal for families!" },
+            russian: { name: "Russian Blue", description: "A Russian Blue would be wonderful for you! These elegant cats with their distinctive blue-gray coats and emerald eyes are known for being gentle, quiet, and somewhat reserved. They form strong bonds with their owners but aren't overly demanding. Russian Blues are perfect for apartment living and for someone who appreciates a refined, intelligent companion." }
+        }
     }
 };
 
@@ -516,7 +601,8 @@ let quizState = {
     differentiation: { currentQuestion: 0, answers: [], active: false },
     fourpointsquiz: { currentQuestion: 0, answers: [], active: false },
     fourpoints: { currentQuestion: 0, answers: [], active: false },
-    gridlock: { currentQuestion: 0, answers: [], active: false }
+    gridlock: { currentQuestion: 0, answers: [], active: false },
+    catquiz: { currentQuestion: 0, answers: [], active: false }
 };
 
 // ===== Quiz Functions =====
@@ -716,7 +802,38 @@ function showResults(quizId) {
     container.querySelector('.quiz-navigation').style.display = 'none';
     container.querySelector('.quiz-progress').style.display = 'none';
 
-    // Calculate score
+    // Show results div
+    const resultsDiv = container.querySelector('.quiz-results');
+
+    // Handle personality quizzes differently
+    if (quiz.type === 'personality') {
+        // Count which result type got the most votes
+        const counts = {};
+        state.answers.forEach((answerIndex, questionIndex) => {
+            const resultType = quiz.questions[questionIndex].options[answerIndex].score;
+            counts[resultType] = (counts[resultType] || 0) + 1;
+        });
+
+        // Find the winning result
+        let winningType = Object.keys(counts).reduce((a, b) => counts[a] > counts[b] ? a : b);
+        const result = quiz.results[winningType];
+
+        resultsDiv.querySelector('.quiz-score').innerHTML = `
+            <div class="personality-result">
+                <span class="result-label">Your Perfect Match:</span>
+                <span class="result-name">${result.name}</span>
+            </div>
+        `;
+
+        resultsDiv.querySelector('.quiz-interpretation').innerHTML = `
+            <p>${result.description}</p>
+        `;
+
+        resultsDiv.classList.add('active');
+        return;
+    }
+
+    // Calculate score for other quiz types
     let score = 0;
     let maxScore = 0;
     if (quiz.type === 'self-assessment') {
@@ -752,9 +869,6 @@ function showResults(quizId) {
     const percentage = Math.round((score / maxScore) * 100);
     const circumference = 2 * Math.PI * 90; // radius = 90
     const dashoffset = circumference - (percentage / 100) * circumference;
-
-    // Show results with visual chart
-    const resultsDiv = container.querySelector('.quiz-results');
 
     let resultsHTML = `
         <div class="score-circle">

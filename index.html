@@ -379,6 +379,45 @@
                         <button class="btn btn-primary" onclick="resetQuiz('gridlock')">Take Quiz Again</button>
                     </div>
                 </div>
+
+                <h3 class="quiz-category-title">Just for Fun</h3>
+                <div class="quiz-grid">
+                    <div class="quiz-card fun" onclick="startQuiz('catquiz')">
+                        <div class="quiz-icon">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M12 5c-1.5-2-4-2-6 0s-2 5 0 7l6 6 6-6c2-2 2-5 0-7s-4.5-2-6 0z"/>
+                            </svg>
+                        </div>
+                        <h3>What Cat Should You Own?</h3>
+                        <p>Discover which cat breed best matches your lifestyle and personality!</p>
+                        <p class="quiz-meta">8 questions • Personality Quiz</p>
+                        <span class="btn btn-primary">Start Quiz</span>
+                    </div>
+                </div>
+
+                <!-- Cat Quiz -->
+                <div id="quiz-catquiz" class="quiz-container">
+                    <div class="quiz-header">
+                        <h3>What Kind of Cat Should You Own?</h3>
+                        <p>Answer these questions to discover your perfect feline match!</p>
+                    </div>
+                    <div class="quiz-progress">
+                        <div class="progress-bar">
+                            <div class="progress-fill" style="width: 0%"></div>
+                        </div>
+                        <span class="progress-text">Question 1 of 8</span>
+                    </div>
+                    <div class="quiz-questions"></div>
+                    <div class="quiz-navigation">
+                        <button class="btn btn-secondary" onclick="prevQuestion('catquiz')" disabled>Previous</button>
+                    </div>
+                    <div class="quiz-results">
+                        <h3>Your Results</h3>
+                        <div class="quiz-score"></div>
+                        <div class="quiz-interpretation"></div>
+                        <button class="btn btn-primary" onclick="resetQuiz('catquiz')">Take Quiz Again</button>
+                    </div>
+                </div>
             </div>
         </section>
 
