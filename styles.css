@@ -1016,6 +1016,8 @@ a.concept-card.clickable:hover .learn-more {
     background-color: var(--color-warm-beige);
     padding: var(--spacing-lg);
     border-radius: var(--radius-lg);
+    z-index: 1;
+    align-self: start;
 }
 
 .book-cover {
@@ -1120,6 +1122,8 @@ a.concept-card.clickable:hover .learn-more {
     background-color: var(--color-warm-beige);
     padding: var(--spacing-lg);
     border-radius: var(--radius-lg);
+    z-index: 1;
+    align-self: start;
 }
 
 .article-meta p {
