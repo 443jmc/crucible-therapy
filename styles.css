@@ -589,6 +589,11 @@ a.feature-card.clickable:hover .learn-more {
     padding: var(--spacing-xxl) 0;
 }
 
+.content-section.hero-section {
+    padding-top: calc(var(--spacing-xxl) + 80px);
+    background: linear-gradient(135deg, var(--color-warm-cream) 0%, var(--color-warm-beige) 100%);
+}
+
 .content-section.alt-bg {
     background-color: var(--color-warm-beige);
 }
