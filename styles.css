@@ -2156,7 +2156,10 @@ a.concept-card.clickable:hover .learn-more {
 
 .hero__bg {
     position: absolute;
-    inset: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     z-index: 0;
 }
 
@@ -2168,7 +2171,10 @@ a.concept-card.clickable:hover .learn-more {
 
 .hero__overlay {
     position: absolute;
-    inset: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     background: linear-gradient(
         180deg,
         rgba(45, 45, 45, 0.4) 0%,
@@ -2232,10 +2238,20 @@ a.concept-card.clickable:hover .learn-more {
     position: relative;
     border-radius: var(--radius-lg);
     overflow: hidden;
-    aspect-ratio: 3 / 4;
+    -webkit-mask-image: -webkit-radial-gradient(white, black); /* Safari border-radius clip fix */
+    padding-bottom: 133.33%; /* 4/3 fallback for aspect-ratio: 3/4 */
+    height: 0;
     cursor: pointer;
     transition: transform var(--transition-normal), box-shadow var(--transition-normal);
     text-decoration: none;
+}
+
+@supports (aspect-ratio: 3 / 4) {
+    .portal-card-photo {
+        aspect-ratio: 3 / 4;
+        padding-bottom: 0;
+        height: auto;
+    }
 }
 
 .portal-card-photo:hover {
@@ -2245,7 +2261,10 @@ a.concept-card.clickable:hover .learn-more {
 
 .portal-card-photo__img {
     position: absolute;
-    inset: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
 }
 
 .portal-card-photo__img img {
@@ -2261,7 +2280,10 @@ a.concept-card.clickable:hover .learn-more {
 
 .portal-card-photo__overlay {
     position: absolute;
-    inset: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     background: linear-gradient(
         0deg,
         rgba(45, 45, 45, 0.78) 0%,
@@ -2333,6 +2355,7 @@ a.concept-card.clickable:hover .learn-more {
     background-color: var(--color-white);
     border-radius: var(--radius-lg);
     overflow: hidden;
+    -webkit-mask-image: -webkit-radial-gradient(white, black); /* Safari border-radius clip fix */
     box-shadow: var(--shadow-sm);
     transition: transform var(--transition-normal), box-shadow var(--transition-normal);
     text-decoration: none;
@@ -2406,7 +2429,14 @@ a.concept-card.clickable:hover .learn-more {
     }
 
     .portal-card-photo {
-        aspect-ratio: 16 / 9;
+        padding-bottom: 56.25%; /* 9/16 fallback for aspect-ratio: 16/9 */
+    }
+
+    @supports (aspect-ratio: 16 / 9) {
+        .portal-card-photo {
+            aspect-ratio: 16 / 9;
+            padding-bottom: 0;
+        }
     }
 
     .article-grid-photo {
@@ -2428,7 +2458,14 @@ a.concept-card.clickable:hover .learn-more {
     }
 
     .portal-card-photo {
-        aspect-ratio: 4 / 3;
+        padding-bottom: 75%; /* 3/4 fallback for aspect-ratio: 4/3 */
+    }
+
+    @supports (aspect-ratio: 4 / 3) {
+        .portal-card-photo {
+            aspect-ratio: 4 / 3;
+            padding-bottom: 0;
+        }
     }
 
     .article-card-photo__img {
@@ -2450,7 +2487,10 @@ a.concept-card.clickable:hover .learn-more {
 
 .page-header-photo__bg {
     position: absolute;
-    inset: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     z-index: 0;
 }
 
@@ -2462,7 +2502,10 @@ a.concept-card.clickable:hover .learn-more {
 
 .page-header-photo__overlay {
     position: absolute;
-    inset: 0;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
     background: linear-gradient(
         180deg,
         rgba(45, 45, 45, 0.45) 0%,
@@ -2509,6 +2552,7 @@ a.concept-card.clickable:hover .learn-more {
     align-items: center;
     justify-content: center;
     color: var(--color-white);
+    -webkit-backdrop-filter: blur(4px);
     backdrop-filter: blur(4px);
 }
 
