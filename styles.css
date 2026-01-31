@@ -2101,8 +2101,8 @@ a.concept-card.clickable:hover .learn-more {
     }
 
     .book-cover-link {
-        min-height: 160px;
-        max-height: 160px;
+        height: 200px;
+        padding: var(--spacing-lg);
     }
 
     .book-card .book-cover {
@@ -2113,8 +2113,8 @@ a.concept-card.clickable:hover .learn-more {
 
 @media (max-width: 480px) {
     .book-cover-link {
-        min-height: 140px;
-        max-height: 140px;
+        height: 180px;
+        padding: var(--spacing-lg);
     }
 
     .book-card .book-cover {
