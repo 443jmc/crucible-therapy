@@ -2209,6 +2209,7 @@ a.concept-card.clickable:hover .learn-more {
 /* ===== Photo Portal Cards (Sacramento Style) ===== */
 .portal-section-photo {
     padding: var(--spacing-xxl) 0;
+    padding-top: calc(56px + var(--spacing-xxl)); /* Clear fixed navbar when hero is removed */
     background-color: var(--color-warm-cream);
 }
 
