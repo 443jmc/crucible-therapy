@@ -2141,3 +2141,438 @@ a.concept-card.clickable:hover .learn-more {
         height: 80px;
     }
 }
+
+/* ===== Photo Hero Section (Sacramento Style) ===== */
+.hero {
+    position: relative;
+    min-height: 85vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    margin-top: 56px;
+}
+
+.hero__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.hero__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.hero__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(45, 45, 45, 0.4) 0%,
+        rgba(45, 45, 45, 0.55) 100%
+    );
+    z-index: 1;
+}
+
+.hero__content {
+    position: relative;
+    z-index: 2;
+    max-width: 750px;
+    padding: 2rem 1.5rem;
+}
+
+.hero__content h1 {
+    color: var(--color-white);
+    margin-bottom: 1.2rem;
+    font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.hero__content p {
+    color: rgba(255, 255, 255, 0.92);
+    font-size: clamp(1rem, 2vw, 1.2rem);
+    margin-bottom: 2rem;
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: 1.7;
+}
+
+/* ===== Photo Portal Cards (Sacramento Style) ===== */
+.portal-section-photo {
+    padding: var(--spacing-xxl) 0;
+    background-color: var(--color-warm-cream);
+}
+
+.section-header-centered {
+    text-align: center;
+    max-width: 700px;
+    margin: 0 auto 3rem;
+}
+
+.section-header-centered h2 {
+    margin-bottom: 1rem;
+}
+
+.section-header-centered p {
+    font-size: 1.1rem;
+    color: var(--color-text-light);
+}
+
+.portal-grid-photo {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+}
+
+.portal-card-photo {
+    position: relative;
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    aspect-ratio: 3 / 4;
+    cursor: pointer;
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    text-decoration: none;
+}
+
+.portal-card-photo:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+}
+
+.portal-card-photo__img {
+    position: absolute;
+    inset: 0;
+}
+
+.portal-card-photo__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.portal-card-photo:hover .portal-card-photo__img img {
+    transform: scale(1.05);
+}
+
+.portal-card-photo__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        0deg,
+        rgba(45, 45, 45, 0.78) 0%,
+        rgba(45, 45, 45, 0.15) 50%,
+        rgba(45, 45, 45, 0.05) 100%
+    );
+    z-index: 1;
+    transition: background var(--transition-normal);
+}
+
+.portal-card-photo:hover .portal-card-photo__overlay {
+    background: linear-gradient(
+        0deg,
+        rgba(74, 103, 65, 0.88) 0%,
+        rgba(74, 103, 65, 0.25) 50%,
+        rgba(74, 103, 65, 0.05) 100%
+    );
+}
+
+.portal-card-photo__content {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 2rem 1.5rem;
+    z-index: 2;
+}
+
+.portal-card-photo__content h3 {
+    color: var(--color-white);
+    margin-bottom: 0.5rem;
+    font-size: 1.4rem;
+}
+
+.portal-card-photo__content p {
+    color: rgba(255, 255, 255, 0.88);
+    font-size: 0.9rem;
+    line-height: 1.5;
+    margin-bottom: 0;
+}
+
+.portal-card-photo__arrow {
+    display: inline-block;
+    margin-top: 1rem;
+    color: var(--color-white);
+    font-size: 0.85rem;
+    font-weight: 600;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity var(--transition-normal), transform var(--transition-normal);
+}
+
+.portal-card-photo:hover .portal-card-photo__arrow {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* ===== Article Cards with Photos ===== */
+.article-grid-photo {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(340px, 1fr));
+    gap: 2rem;
+}
+
+.article-card-photo {
+    display: block;
+    background-color: var(--color-white);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    box-shadow: var(--shadow-sm);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal);
+    text-decoration: none;
+    color: inherit;
+    cursor: pointer;
+}
+
+.article-card-photo:hover {
+    transform: translateY(-5px);
+    box-shadow: var(--shadow-lg);
+    color: inherit;
+}
+
+.article-card-photo__img {
+    height: 200px;
+    overflow: hidden;
+}
+
+.article-card-photo__img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.6s ease;
+}
+
+.article-card-photo:hover .article-card-photo__img img {
+    transform: scale(1.05);
+}
+
+.article-card-photo__body {
+    padding: 1.5rem;
+}
+
+.article-card-photo__body h3 {
+    font-size: 1.25rem;
+    color: var(--color-text-dark);
+    margin-bottom: 0.75rem;
+    transition: color var(--transition-normal);
+}
+
+.article-card-photo:hover .article-card-photo__body h3 {
+    color: var(--color-primary);
+}
+
+.article-card-photo__body p {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+    line-height: 1.6;
+    margin-bottom: 0;
+}
+
+/* Position top for portrait images */
+.img-top {
+    object-position: top !important;
+}
+
+/* ===== Responsive Adjustments for Photo Components ===== */
+@media (max-width: 992px) {
+    .portal-grid-photo {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        min-height: 70vh;
+    }
+
+    .portal-grid-photo {
+        grid-template-columns: 1fr;
+    }
+
+    .portal-card-photo {
+        aspect-ratio: 16 / 9;
+    }
+
+    .article-grid-photo {
+        grid-template-columns: 1fr;
+    }
+
+    .article-card-photo__img {
+        height: 180px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        min-height: 60vh;
+    }
+
+    .hero__content h1 {
+        font-size: 2rem;
+    }
+
+    .portal-card-photo {
+        aspect-ratio: 4 / 3;
+    }
+
+    .article-card-photo__img {
+        height: 160px;
+    }
+}
+
+/* ===== Photo Page Headers (Subpages - Sacramento Style) ===== */
+.page-header-photo {
+    position: relative;
+    min-height: 45vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    overflow: hidden;
+    margin-top: 56px;
+}
+
+.page-header-photo__bg {
+    position: absolute;
+    inset: 0;
+    z-index: 0;
+}
+
+.page-header-photo__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.page-header-photo__overlay {
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(
+        180deg,
+        rgba(45, 45, 45, 0.45) 0%,
+        rgba(45, 45, 45, 0.65) 100%
+    );
+    z-index: 1;
+}
+
+.page-header-photo__content {
+    position: relative;
+    z-index: 2;
+    width: 100%;
+    padding: calc(var(--spacing-xxl) + 20px) 0 var(--spacing-xxl);
+}
+
+.page-header-photo h1 {
+    color: var(--color-white);
+    margin-bottom: var(--spacing-sm);
+    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+}
+
+.page-header-photo .book-label {
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.85);
+    margin-bottom: var(--spacing-sm);
+}
+
+.page-header-photo .book-author-header {
+    font-style: italic;
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Issue header photo variant */
+.issue-header-photo .issue-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--spacing-lg);
+    background-color: rgba(255, 255, 255, 0.15);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--color-white);
+    backdrop-filter: blur(4px);
+}
+
+.issue-header-photo .issue-icon svg {
+    width: 40px;
+    height: 40px;
+}
+
+.issue-header-photo .issue-subtitle {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 1.25rem;
+    font-style: italic;
+}
+
+/* Concept header photo variant */
+.concept-header-photo .back-link {
+    color: rgba(255, 255, 255, 0.8);
+    display: inline-block;
+    margin-bottom: var(--spacing-lg);
+    text-decoration: none;
+}
+
+.concept-header-photo .back-link:hover {
+    color: var(--color-white);
+}
+
+.concept-header-photo .concept-icon {
+    width: 80px;
+    height: 80px;
+    margin: 0 auto var(--spacing-md);
+    color: rgba(255, 255, 255, 0.9);
+}
+
+.concept-header-photo .concept-icon svg {
+    width: 100%;
+    height: 100%;
+}
+
+.concept-header-photo .subtitle {
+    font-size: 1.25rem;
+    color: rgba(255, 255, 255, 0.9);
+}
+
+/* Responsive adjustments for photo page headers */
+@media (max-width: 768px) {
+    .page-header-photo {
+        min-height: 35vh;
+    }
+
+    .page-header-photo__content {
+        padding: calc(var(--spacing-xl) + 20px) 0 var(--spacing-xl);
+    }
+
+    .page-header-photo h1 {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-header-photo {
+        min-height: 30vh;
+    }
+
+    .page-header-photo h1 {
+        font-size: 1.75rem;
+    }
+}

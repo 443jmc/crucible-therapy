@@ -28,57 +28,68 @@
 
     <main>
         <!-- Hero Section -->
-        <section class="simple-hero">
-            <div class="container">
+        <section class="hero">
+            <div class="hero__bg">
+                <img src="images/hero-couple-sunset.jpg" alt="Couple walking together on the beach at sunset">
+            </div>
+            <div class="hero__overlay"></div>
+            <div class="hero__content">
                 <h1>Crucible Therapy</h1>
-                <p class="hero-tagline">A differentiation-based approach to couples therapy that transforms relationship struggles into opportunities for profound personal growth.</p>
+                <p>A differentiation-based approach to couples therapy that transforms relationship struggles into opportunities for profound personal growth.</p>
             </div>
         </section>
 
         <!-- Client Portal Section -->
-        <section id="portal" class="content-section portal-section">
+        <section id="portal" class="content-section portal-section-photo">
             <div class="container">
-                <h2>What Brings You Here?</h2>
-                <p class="section-intro">Select the issue that best describes what you're experiencing in your relationship.</p>
-                <div class="portal-grid">
-                    <a href="issues/communication.html" class="portal-card">
-                        <div class="portal-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
-                            </svg>
+                <div class="section-header-centered">
+                    <h2>What Brings You Here?</h2>
+                    <p>Select the issue that best describes what you're experiencing in your relationship.</p>
+                </div>
+                <div class="portal-grid-photo">
+                    <a href="issues/communication.html" class="portal-card-photo">
+                        <div class="portal-card-photo__img">
+                            <img src="images/portal-communication.jpg" alt="Couple overlooking the ocean at sunset">
                         </div>
-                        <h3>Communication</h3>
-                        <p>Struggling to talk without it turning into an argument? Feeling unheard or misunderstood?</p>
+                        <div class="portal-card-photo__overlay"></div>
+                        <div class="portal-card-photo__content">
+                            <h3>Communication</h3>
+                            <p>Struggling to talk without it turning into an argument? Feeling unheard or misunderstood?</p>
+                            <span class="portal-card-photo__arrow">Explore &rarr;</span>
+                        </div>
                     </a>
-                    <a href="issues/infidelity.html" class="portal-card">
-                        <div class="portal-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M19 14c1.49-1.46 3-3.21 3-5.5A5.5 5.5 0 0 0 16.5 3c-1.76 0-3 .5-4.5 2-1.5-1.5-2.74-2-4.5-2A5.5 5.5 0 0 0 2 8.5c0 2.3 1.5 4.05 3 5.5l7 7Z"/>
-                                <line x1="2" y1="2" x2="22" y2="22"/>
-                            </svg>
+                    <a href="issues/infidelity.html" class="portal-card-photo">
+                        <div class="portal-card-photo__img">
+                            <img src="images/portal-infidelity.jpg" alt="Couple holding hands">
                         </div>
-                        <h3>Infidelity</h3>
-                        <p>Dealing with betrayal, broken trust, or the aftermath of an affair?</p>
+                        <div class="portal-card-photo__overlay"></div>
+                        <div class="portal-card-photo__content">
+                            <h3>Infidelity</h3>
+                            <p>Dealing with betrayal, broken trust, or the aftermath of an affair?</p>
+                            <span class="portal-card-photo__arrow">Explore &rarr;</span>
+                        </div>
                     </a>
-                    <a href="issues/intimacy.html" class="portal-card">
-                        <div class="portal-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/>
-                            </svg>
+                    <a href="issues/intimacy.html" class="portal-card-photo">
+                        <div class="portal-card-photo__img">
+                            <img src="images/portal-intimacy.jpg" alt="Couple in an intimate embrace at sunset">
                         </div>
-                        <h3>Intimacy</h3>
-                        <p>Experiencing differences in desire, physical distance, or struggles with sexual connection?</p>
+                        <div class="portal-card-photo__overlay"></div>
+                        <div class="portal-card-photo__content">
+                            <h3>Intimacy</h3>
+                            <p>Experiencing differences in desire, physical distance, or struggles with sexual connection?</p>
+                            <span class="portal-card-photo__arrow">Explore &rarr;</span>
+                        </div>
                     </a>
-                    <a href="issues/disconnection.html" class="portal-card">
-                        <div class="portal-icon">
-                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                <circle cx="12" cy="12" r="10"/>
-                                <line x1="8" y1="12" x2="8" y2="12.01"/>
-                                <line x1="16" y1="12" x2="16" y2="12.01"/>
-                            </svg>
+                    <a href="issues/disconnection.html" class="portal-card-photo">
+                        <div class="portal-card-photo__img">
+                            <img src="images/portal-disconnection.jpg" alt="Couple running together on the beach">
                         </div>
-                        <h3>Disconnection</h3>
-                        <p>Feeling like roommates? Lost the spark or emotional closeness you once had?</p>
+                        <div class="portal-card-photo__overlay"></div>
+                        <div class="portal-card-photo__content">
+                            <h3>Disconnection</h3>
+                            <p>Feeling like roommates? Lost the spark or emotional closeness you once had?</p>
+                            <span class="portal-card-photo__arrow">Explore &rarr;</span>
+                        </div>
                     </a>
                 </div>
             </div>
@@ -87,34 +98,73 @@
         <!-- Articles Section -->
         <section id="articles" class="content-section">
             <div class="container">
-                <div class="article-grid">
-                    <a href="articles/how-is-crucible-therapy-different.html" class="article-card">
-                        <h3>How is Crucible Therapy Different?</h3>
-                        <p>Discover what sets the Crucible approach apart from traditional couples therapy methods and why it leads to deeper, lasting change.</p>
+                <div class="section-header-centered">
+                    <h2>Understanding Crucible Therapy</h2>
+                    <p>Explore articles that explain the principles, comparisons, and practical applications of the Crucible approach.</p>
+                </div>
+                <div class="article-grid-photo">
+                    <a href="articles/how-is-crucible-therapy-different.html" class="article-card-photo">
+                        <div class="article-card-photo__img">
+                            <img src="images/article-therapy.jpg" alt="Couple in meaningful conversation">
+                        </div>
+                        <div class="article-card-photo__body">
+                            <h3>How is Crucible Therapy Different?</h3>
+                            <p>Discover what sets the Crucible approach apart from traditional couples therapy methods and why it leads to deeper, lasting change.</p>
+                        </div>
                     </a>
-                    <a href="articles/crucible-vs-gottman.html" class="article-card">
-                        <h3>Crucible Therapy vs Gottman Therapy</h3>
-                        <p>A comparison of two influential approaches to couples therapy and their different perspectives on relationship health.</p>
+                    <a href="articles/crucible-vs-gottman.html" class="article-card-photo">
+                        <div class="article-card-photo__img">
+                            <img src="images/article-path.jpg" alt="Two paths diverging in a forest">
+                        </div>
+                        <div class="article-card-photo__body">
+                            <h3>Crucible Therapy vs Gottman Therapy</h3>
+                            <p>A comparison of two influential approaches to couples therapy and their different perspectives on relationship health.</p>
+                        </div>
                     </a>
-                    <a href="articles/eft-vs-crucible-therapy.html" class="article-card">
-                        <h3>EFT vs Crucible Therapy</h3>
-                        <p>Comparing Emotionally Focused Therapy and Crucible Therapy—two influential approaches with fundamentally different views on what creates lasting change.</p>
+                    <a href="articles/eft-vs-crucible-therapy.html" class="article-card-photo">
+                        <div class="article-card-photo__img">
+                            <img src="images/article-reflection.jpg" alt="Peaceful lake reflection">
+                        </div>
+                        <div class="article-card-photo__body">
+                            <h3>EFT vs Crucible Therapy</h3>
+                            <p>Comparing Emotionally Focused Therapy and Crucible Therapy—two influential approaches with fundamentally different views on what creates lasting change.</p>
+                        </div>
                     </a>
-                    <a href="articles/differentiation-in-marriage.html" class="article-card">
-                        <h3>Differentiation in Marriage</h3>
-                        <p>Understanding the central concept of differentiation and how it transforms the way couples relate to each other.</p>
+                    <a href="articles/differentiation-in-marriage.html" class="article-card-photo">
+                        <div class="article-card-photo__img">
+                            <img src="images/article-couple-walk.jpg" alt="Couple walking together">
+                        </div>
+                        <div class="article-card-photo__body">
+                            <h3>Differentiation in Marriage</h3>
+                            <p>Understanding the central concept of differentiation and how it transforms the way couples relate to each other.</p>
+                        </div>
                     </a>
-                    <a href="articles/differentiation-vs-attachment.html" class="article-card">
-                        <h3>Differentiation vs. Attachment in Couples Therapy</h3>
-                        <p>Exploring the relationship between differentiation-based and attachment-based approaches to intimate relationships.</p>
+                    <a href="articles/differentiation-vs-attachment.html" class="article-card-photo">
+                        <div class="article-card-photo__img">
+                            <img src="images/article-hands.jpg" alt="Hands reaching toward each other">
+                        </div>
+                        <div class="article-card-photo__body">
+                            <h3>Differentiation vs. Attachment in Couples Therapy</h3>
+                            <p>Exploring the relationship between differentiation-based and attachment-based approaches to intimate relationships.</p>
+                        </div>
                     </a>
-                    <a href="articles/becoming-more-solid.html" class="article-card">
-                        <h3>How to Become a More Solid Person</h3>
-                        <p>Practical guidance on developing the emotional solidity needed to thrive in intimate relationships.</p>
+                    <a href="articles/becoming-more-solid.html" class="article-card-photo">
+                        <div class="article-card-photo__img">
+                            <img src="images/article-mountain.jpg" alt="Mountain peak at sunrise">
+                        </div>
+                        <div class="article-card-photo__body">
+                            <h3>How to Become a More Solid Person</h3>
+                            <p>Practical guidance on developing the emotional solidity needed to thrive in intimate relationships.</p>
+                        </div>
                     </a>
-                    <a href="articles/who-was-dr-david-schnarch.html" class="article-card">
-                        <h3>Who Was Dr. David Schnarch?</h3>
-                        <p>Learn about the pioneering psychologist who developed Crucible Therapy and transformed our understanding of intimacy and growth in relationships.</p>
+                    <a href="articles/who-was-dr-david-schnarch.html" class="article-card-photo">
+                        <div class="article-card-photo__img">
+                            <img src="images/dr-david-schnarch-hero.jpg" alt="Dr. David Schnarch" class="img-top">
+                        </div>
+                        <div class="article-card-photo__body">
+                            <h3>Who Was Dr. David Schnarch?</h3>
+                            <p>Learn about the pioneering psychologist who developed Crucible Therapy and transformed our understanding of intimacy and growth in relationships.</p>
+                        </div>
                     </a>
                 </div>
             </div>
