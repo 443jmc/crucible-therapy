@@ -1930,11 +1930,10 @@ a.concept-card.clickable:hover .learn-more {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: var(--spacing-lg);
+    padding: var(--spacing-xl) var(--spacing-lg);
     background-color: var(--color-warm-cream);
     border-radius: var(--radius-lg) var(--radius-lg) 0 0;
-    min-height: 200px;
-    max-height: 200px;
+    height: 240px;
     overflow: hidden;
 }
 
