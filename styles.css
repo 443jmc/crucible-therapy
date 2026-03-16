@@ -290,6 +290,164 @@ img {
     color: var(--color-primary);
 }
 
+.section-kicker {
+    display: inline-block;
+    margin-bottom: 0.85rem;
+    color: var(--color-primary);
+    font-size: 0.78rem;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+}
+
+.section-kicker--light {
+    color: rgba(255, 255, 255, 0.78);
+}
+
+.hero-home {
+    min-height: auto;
+    padding: calc(72px + var(--spacing-xxl)) 0 var(--spacing-xxl);
+    background: linear-gradient(135deg, #213028 0%, #31473c 54%, #70530f 100%);
+}
+
+.hero-home__bg,
+.hero-home__overlay {
+    position: absolute;
+    inset: 0;
+}
+
+.hero-home__bg img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+}
+
+.hero-home__overlay {
+    background:
+        linear-gradient(115deg, rgba(22, 32, 27, 0.9) 10%, rgba(22, 32, 27, 0.54) 48%, rgba(22, 32, 27, 0.78) 100%),
+        linear-gradient(180deg, rgba(22, 32, 27, 0.18) 0%, rgba(22, 32, 27, 0.62) 100%);
+}
+
+.hero-home__layout {
+    position: relative;
+    z-index: 2;
+    display: grid;
+    grid-template-columns: minmax(0, 1.25fr) minmax(320px, 420px);
+    gap: var(--spacing-xl);
+    align-items: end;
+}
+
+.hero-home__content {
+    max-width: 46rem;
+}
+
+.hero-home h1 {
+    max-width: 12ch;
+    font-size: clamp(2.8rem, 6vw, 5rem);
+    line-height: 1.08;
+    margin-bottom: 1rem;
+}
+
+.hero-home .hero-subtitle {
+    max-width: 38rem;
+    font-size: 1.17rem;
+    color: rgba(255, 255, 255, 0.92);
+    margin-bottom: 1.75rem;
+}
+
+.hero-home .hero-buttons {
+    justify-content: flex-start;
+}
+
+.hero-home__highlights {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.8rem;
+    list-style: none;
+    margin-top: 1.5rem;
+}
+
+.hero-home__highlights li {
+    padding: 0.7rem 1rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.16);
+    color: rgba(255, 255, 255, 0.94);
+    font-size: 0.96rem;
+    line-height: 1.4;
+    backdrop-filter: blur(6px);
+}
+
+.feature-chip {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.45rem 0.8rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.14);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    color: rgba(255, 255, 255, 0.92);
+    font-size: 0.75rem;
+    font-weight: 700;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+}
+
+.hero-home__card {
+    display: block;
+    color: var(--color-white);
+    text-decoration: none;
+    padding: 2rem;
+    border-radius: 24px;
+    background: rgba(255, 255, 255, 0.11);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    box-shadow: 0 26px 60px rgba(8, 14, 11, 0.28);
+    backdrop-filter: blur(14px);
+    transition: transform var(--transition-normal), box-shadow var(--transition-normal), background-color var(--transition-normal);
+}
+
+.hero-home__card:hover {
+    transform: translateY(-6px);
+    box-shadow: 0 32px 72px rgba(8, 14, 11, 0.34);
+    background: rgba(255, 255, 255, 0.14);
+    color: var(--color-white);
+}
+
+.hero-home__card h2 {
+    color: var(--color-white);
+    font-size: clamp(1.75rem, 3vw, 2.2rem);
+    margin: 1rem 0 0.85rem;
+}
+
+.hero-home__card p {
+    color: rgba(255, 255, 255, 0.88);
+    margin-bottom: 1rem;
+}
+
+.hero-home__card-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.55rem;
+    margin-bottom: 1.2rem;
+}
+
+.hero-home__card-meta span {
+    padding: 0.45rem 0.7rem;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.13);
+    color: rgba(255, 255, 255, 0.94);
+    font-size: 0.83rem;
+}
+
+.hero-home__card-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+    color: var(--color-white);
+    font-weight: 700;
+}
+
 /* ===== Intro Section ===== */
 .intro-section {
     padding: var(--spacing-xxl) 0;
@@ -385,6 +543,94 @@ a.feature-card.clickable p {
 
 a.feature-card.clickable:hover .learn-more {
     transform: translateX(5px);
+}
+
+.homepage-feature {
+    background: linear-gradient(180deg, var(--color-white) 0%, var(--color-warm-cream) 100%);
+}
+
+.feature-spotlight {
+    display: grid;
+    grid-template-columns: minmax(0, 1.05fr) minmax(0, 1fr);
+    gap: var(--spacing-xl);
+    align-items: stretch;
+}
+
+.feature-spotlight__media {
+    display: block;
+    min-height: 100%;
+    border-radius: 24px;
+    overflow: hidden;
+    box-shadow: var(--shadow-lg);
+}
+
+.feature-spotlight__media img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.feature-spotlight__body {
+    background: var(--color-white);
+    border-radius: 24px;
+    padding: clamp(1.5rem, 2vw, 2.3rem);
+    box-shadow: var(--shadow-md);
+}
+
+.feature-spotlight__body h3 {
+    font-size: clamp(1.7rem, 3vw, 2.35rem);
+    margin-bottom: 1rem;
+}
+
+.feature-spotlight__points {
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 1rem;
+    margin: 1.5rem 0;
+}
+
+.feature-spotlight__point {
+    padding: 1rem;
+    border-radius: 18px;
+    background: var(--color-warm-cream);
+    border: 1px solid var(--color-warm-tan);
+}
+
+.feature-spotlight__point h4 {
+    color: var(--color-secondary);
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+}
+
+.feature-spotlight__point p {
+    margin-bottom: 0;
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+}
+
+.feature-spotlight__links {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+    margin: 1.5rem 0;
+}
+
+.feature-spotlight__links a {
+    display: inline-flex;
+    align-items: center;
+    padding: 0.7rem 1rem;
+    border-radius: 999px;
+    background: var(--color-warm-cream);
+    border: 1px solid var(--color-warm-tan);
+    color: var(--color-text-dark);
+    font-weight: 600;
+}
+
+.feature-spotlight__links a:hover {
+    background: var(--color-warm-beige);
+    border-color: rgba(139, 105, 20, 0.28);
+    color: var(--color-primary-dark);
 }
 
 /* ===== Quote Section ===== */
@@ -2209,7 +2455,6 @@ a.concept-card.clickable:hover .learn-more {
 /* ===== Photo Portal Cards (Sacramento Style) ===== */
 .portal-section-photo {
     padding: var(--spacing-xxl) 0;
-    padding-top: calc(56px + var(--spacing-xxl)); /* Clear fixed navbar when hero is removed */
     background-color: var(--color-warm-cream);
 }
 
@@ -2407,6 +2652,29 @@ a.concept-card.clickable:hover .learn-more {
     margin-bottom: 0;
 }
 
+.homepage-concepts {
+    background: var(--color-white);
+}
+
+.homepage-concepts .feature-card {
+    text-align: left;
+    background: linear-gradient(180deg, var(--color-white) 0%, var(--color-warm-cream) 100%);
+    border: 1px solid rgba(139, 105, 20, 0.12);
+    box-shadow: var(--shadow-sm);
+}
+
+.homepage-concepts .feature-card:hover {
+    box-shadow: var(--shadow-lg);
+}
+
+.homepage-articles {
+    background: var(--color-warm-cream);
+}
+
+.related-feature-grid {
+    margin-top: var(--spacing-lg);
+}
+
 /* Position top for portrait images */
 .img-top {
     object-position: top !important;
@@ -2414,6 +2682,19 @@ a.concept-card.clickable:hover .learn-more {
 
 /* ===== Responsive Adjustments for Photo Components ===== */
 @media (max-width: 992px) {
+    .hero-home__layout {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-home__card {
+        max-width: 620px;
+    }
+
+    .feature-spotlight,
+    .feature-spotlight__points {
+        grid-template-columns: 1fr;
+    }
+
     .portal-grid-photo {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -2422,6 +2703,22 @@ a.concept-card.clickable:hover .learn-more {
 @media (max-width: 768px) {
     .hero {
         min-height: 70vh;
+    }
+
+    .hero-home {
+        padding: calc(68px + var(--spacing-xl)) 0 var(--spacing-xl);
+    }
+
+    .hero-home .hero-buttons {
+        justify-content: stretch;
+    }
+
+    .hero-home .hero-buttons .btn {
+        width: 100%;
+    }
+
+    .hero-home__highlights {
+        flex-direction: column;
     }
 
     .portal-grid-photo {
@@ -2455,6 +2752,10 @@ a.concept-card.clickable:hover .learn-more {
 
     .hero__content h1 {
         font-size: 2rem;
+    }
+
+    .hero-home__card {
+        padding: 1.4rem;
     }
 
     .portal-card-photo {
@@ -2539,6 +2840,16 @@ a.concept-card.clickable:hover .learn-more {
     font-style: italic;
     font-size: 1.25rem;
     color: rgba(255, 255, 255, 0.9);
+}
+
+.page-header-photo .book-author-header a {
+    color: rgba(255, 255, 255, 0.96);
+    text-decoration: underline;
+    text-decoration-color: rgba(255, 255, 255, 0.35);
+}
+
+.page-header-photo .book-author-header a:hover {
+    color: var(--color-white);
 }
 
 /* Issue header photo variant */
