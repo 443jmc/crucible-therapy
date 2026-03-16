@@ -1,23 +1,25 @@
+@import url('https://fonts.googleapis.com/css2?family=Bitter:wght@400;600;700&family=Young+Serif&display=swap');
+
 /* ===== CSS Variables ===== */
 :root {
-    /* Neutral palette */
+    /* Warm card-based palette */
     --color-primary: #171513;
     --color-primary-light: #4B4640;
     --color-primary-dark: #0D0C0B;
     --color-secondary: #201E1B;
     --color-secondary-light: #3A3632;
-    --color-accent: #D8D0C6;
-    --color-warm-cream: #FAF6F0;
-    --color-warm-beige: #F2ECE3;
-    --color-warm-tan: #DED5C8;
+    --color-accent: #D7CBB9;
+    --color-warm-cream: #F7F0E4;
+    --color-warm-beige: #E5D8C7;
+    --color-warm-tan: #C1AE96;
     --color-text: #322E29;
     --color-text-light: #68615A;
     --color-text-dark: #161412;
     --color-white: #FFFFFF;
 
     /* Typography */
-    --font-heading: 'Libre Baskerville', Georgia, serif;
-    --font-body: 'Source Sans Pro', -apple-system, BlinkMacSystemFont, sans-serif;
+    --font-heading: 'Young Serif', Georgia, serif;
+    --font-body: 'Bitter', Georgia, serif;
 
     /* Spacing */
     --spacing-xs: 0.5rem;
@@ -28,14 +30,14 @@
     --spacing-xxl: 5rem;
 
     /* Border radius */
-    --radius-sm: 4px;
-    --radius-md: 8px;
-    --radius-lg: 16px;
+    --radius-sm: 6px;
+    --radius-md: 10px;
+    --radius-lg: 14px;
 
     /* Shadows */
-    --shadow-sm: 0 6px 18px rgba(18, 16, 14, 0.05);
-    --shadow-md: 0 14px 30px rgba(18, 16, 14, 0.08);
-    --shadow-lg: 0 24px 48px rgba(18, 16, 14, 0.1);
+    --shadow-sm: none;
+    --shadow-md: none;
+    --shadow-lg: none;
 
     /* Transitions */
     --transition-fast: 0.15s ease;
@@ -58,7 +60,7 @@ body {
     font-size: 18px;
     line-height: 1.7;
     color: var(--color-text);
-    background-color: var(--color-warm-cream);
+    background-color: var(--color-warm-beige);
 }
 
 h1, h2, h3, h4, h5, h6 {
@@ -92,7 +94,7 @@ img {
 
 /* ===== Utility Classes ===== */
 .container {
-    max-width: 1200px;
+    max-width: 1140px;
     margin: 0 auto;
     padding: 0 var(--spacing-lg);
 }
@@ -100,15 +102,15 @@ img {
 /* ===== Buttons ===== */
 .btn {
     display: inline-block;
-    padding: var(--spacing-sm) var(--spacing-lg);
+    padding: 0.9rem 1.35rem;
     font-family: var(--font-body);
-    font-size: 1rem;
+    font-size: 0.96rem;
     font-weight: 600;
     text-align: center;
     border-radius: var(--radius-md);
     cursor: pointer;
     transition: all var(--transition-normal);
-    border: 2px solid transparent;
+    border: 2px solid var(--color-text-dark);
 }
 
 .btn-primary {
@@ -121,21 +123,20 @@ img {
     background-color: var(--color-primary-dark);
     border-color: var(--color-primary-dark);
     color: var(--color-white);
-    transform: translateY(-2px);
-    box-shadow: var(--shadow-md);
+    transform: translateY(-1px);
 }
 
 .btn-secondary {
     background-color: var(--color-white);
     color: var(--color-primary);
-    border-color: rgba(23, 21, 19, 0.18);
+    border-color: var(--color-text-dark);
 }
 
 .btn-secondary:hover {
     background-color: var(--color-warm-cream);
-    border-color: rgba(23, 21, 19, 0.28);
+    border-color: var(--color-text-dark);
     color: var(--color-primary-dark);
-    transform: translateY(-2px);
+    transform: translateY(-1px);
 }
 
 /* ===== Navigation ===== */
@@ -145,14 +146,14 @@ img {
     left: 0;
     right: 0;
     z-index: 1000;
-    background-color: var(--color-white);
-    box-shadow: var(--shadow-sm);
+    background-color: var(--color-warm-beige);
+    border-bottom: 2px solid var(--color-text-dark);
 }
 
 .nav-container {
-    max-width: 1200px;
+    max-width: 1140px;
     margin: 0 auto;
-    padding: var(--spacing-sm) var(--spacing-lg);
+    padding: 0.8rem var(--spacing-lg);
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -160,9 +161,9 @@ img {
 
 .logo {
     font-family: var(--font-heading);
-    font-size: 1.5rem;
-    font-weight: 700;
-    color: var(--color-primary);
+    font-size: 1.18rem;
+    font-weight: 400;
+    color: var(--color-text-dark);
 }
 
 .logo:hover {
@@ -172,12 +173,13 @@ img {
 .nav-links {
     display: flex;
     list-style: none;
-    gap: var(--spacing-lg);
+    gap: 1.2rem;
 }
 
 .nav-links a {
     font-weight: 600;
     color: var(--color-text);
+    font-size: 0.86rem;
     padding: var(--spacing-xs) 0;
     position: relative;
 }
@@ -307,28 +309,31 @@ img {
 
 .hero-home {
     min-height: auto;
-    padding: calc(72px + var(--spacing-xxl)) 0 var(--spacing-xxl);
-    background: linear-gradient(180deg, var(--color-white) 0%, var(--color-warm-cream) 100%);
-    border-bottom: 1px solid var(--color-warm-tan);
+    padding: calc(64px + var(--spacing-lg)) 0 var(--spacing-xl);
+    background: transparent;
     text-align: left;
 }
 
 .hero-home__layout {
     display: grid;
     grid-template-columns: minmax(0, 1.1fr) minmax(300px, 420px);
-    gap: clamp(2rem, 4vw, 4rem);
-    align-items: start;
+    gap: 1rem;
+    align-items: stretch;
 }
 
 .hero-home__content {
     max-width: 46rem;
+    background: var(--color-white);
+    border: 2px solid var(--color-text-dark);
+    border-radius: var(--radius-lg);
+    padding: 1.75rem;
 }
 
 .hero-home h1 {
-    max-width: 11ch;
-    font-size: clamp(2.9rem, 5.8vw, 5.05rem);
-    line-height: 1.04;
-    letter-spacing: -0.02em;
+    max-width: 10.5ch;
+    font-size: clamp(2.8rem, 5.6vw, 4.85rem);
+    line-height: 0.98;
+    letter-spacing: -0.03em;
     margin-bottom: 1rem;
     color: var(--color-text-dark);
     text-shadow: none;
@@ -360,12 +365,12 @@ img {
 .hero-home .btn-secondary {
     background-color: var(--color-white);
     color: var(--color-primary);
-    border-color: rgba(23, 21, 19, 0.18);
+    border-color: var(--color-text-dark);
 }
 
 .hero-home .btn-secondary:hover {
     background-color: var(--color-warm-cream);
-    border-color: rgba(23, 21, 19, 0.28);
+    border-color: var(--color-text-dark);
     color: var(--color-primary-dark);
 }
 
@@ -376,7 +381,7 @@ img {
     padding: 0.45rem 0.8rem;
     border-radius: 999px;
     background: var(--color-primary);
-    border: 1px solid var(--color-primary);
+    border: 2px solid var(--color-primary);
     color: var(--color-white);
     font-size: 0.75rem;
     font-weight: 700;
@@ -395,8 +400,8 @@ img {
     max-width: 420px;
     justify-self: end;
     background: var(--color-white);
-    border: 1px solid var(--color-warm-tan);
-    border-radius: 26px;
+    border: 2px solid var(--color-text-dark);
+    border-radius: var(--radius-lg);
     padding: 1.6rem;
     box-shadow: var(--shadow-sm);
 }
@@ -446,23 +451,23 @@ img {
     padding: 0.75rem 0.95rem;
     border-radius: 999px;
     background: var(--color-warm-cream);
-    border: 1px solid var(--color-warm-tan);
+    border: 2px solid var(--color-text-dark);
     color: var(--color-text-dark);
     font-weight: 600;
 }
 
 .hero-home__summary-links a:hover {
     background: var(--color-warm-beige);
-    border-color: rgba(23, 21, 19, 0.2);
+    border-color: var(--color-text-dark);
     color: var(--color-primary-dark);
 }
 
 .landing-section {
-    background: var(--color-white);
+    background: transparent;
 }
 
 .landing-section--alt {
-    background: var(--color-warm-beige);
+    background: transparent;
 }
 
 .landing-section__layout {
@@ -474,6 +479,10 @@ img {
 
 .landing-section__intro {
     max-width: 34rem;
+    background: var(--color-white);
+    border: 2px solid var(--color-text-dark);
+    border-radius: var(--radius-lg);
+    padding: 1.5rem;
 }
 
 .landing-section__heading {
@@ -484,12 +493,12 @@ img {
 }
 
 .landing-section__thumb {
-    width: 84px;
-    height: 84px;
-    border-radius: 22px;
+    width: 112px;
+    height: 112px;
+    border-radius: 16px;
     object-fit: cover;
     flex-shrink: 0;
-    box-shadow: var(--shadow-sm);
+    border: 2px solid var(--color-text-dark);
 }
 
 .landing-section__intro p {
@@ -512,8 +521,8 @@ img {
 .path-card {
     display: block;
     background: var(--color-white);
-    border: 1px solid var(--color-warm-tan);
-    border-radius: 22px;
+    border: 2px solid var(--color-text-dark);
+    border-radius: var(--radius-lg);
     padding: 1.35rem;
     box-shadow: var(--shadow-sm);
     text-decoration: none;
@@ -522,9 +531,9 @@ img {
 }
 
 .path-card:hover {
-    transform: translateY(-4px);
+    transform: translateY(-2px);
     box-shadow: var(--shadow-md);
-    border-color: rgba(23, 21, 19, 0.2);
+    border-color: var(--color-text-dark);
     color: inherit;
 }
 
@@ -554,7 +563,7 @@ img {
 }
 
 .homepage-books {
-    border-top: 1px solid var(--color-warm-tan);
+    border-top: 2px solid var(--color-text-dark);
 }
 
 /* ===== Intro Section ===== */
@@ -583,7 +592,8 @@ img {
 }
 
 .feature-card {
-    background-color: var(--color-warm-cream);
+    background-color: var(--color-white);
+    border: 2px solid var(--color-text-dark);
     padding: var(--spacing-xl);
     border-radius: var(--radius-lg);
     text-align: center;
@@ -591,7 +601,7 @@ img {
 }
 
 .feature-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
 }
 
@@ -625,7 +635,7 @@ a.feature-card.clickable {
 }
 
 a.feature-card.clickable:hover {
-    transform: translateY(-8px);
+    transform: translateY(-2px);
 }
 
 a.feature-card.clickable h3,
@@ -644,7 +654,7 @@ a.feature-card.clickable p {
 .feature-card .learn-more {
     display: inline-block;
     margin-top: var(--spacing-md);
-    color: var(--color-primary);
+    color: var(--color-text-dark);
     font-weight: 600;
     font-size: 0.95rem;
     transition: transform var(--transition-fast);
@@ -872,9 +882,10 @@ a.feature-card.clickable:hover .learn-more {
 
 /* ===== Footer ===== */
 .footer {
-    background-color: var(--color-text-dark);
-    color: var(--color-warm-tan);
-    padding: var(--spacing-xxl) 0 var(--spacing-lg);
+    background-color: var(--color-warm-beige);
+    color: var(--color-text-dark);
+    padding: var(--spacing-xl) 0;
+    border-top: 2px solid var(--color-text-dark);
 }
 
 .footer-content {
@@ -885,7 +896,7 @@ a.feature-card.clickable:hover .learn-more {
 }
 
 .footer-section h4 {
-    color: var(--color-white);
+    color: var(--color-text-dark);
     margin-bottom: var(--spacing-md);
 }
 
@@ -902,41 +913,48 @@ a.feature-card.clickable:hover .learn-more {
 }
 
 .footer-section ul a {
-    color: var(--color-warm-tan);
+    color: var(--color-text);
     opacity: 0.8;
     transition: opacity var(--transition-fast);
 }
 
 .footer-section ul a:hover {
     opacity: 1;
-    color: var(--color-white);
+    color: var(--color-text-dark);
 }
 
 .footer-bottom {
     text-align: center;
     padding-top: var(--spacing-lg);
-    border-top: 1px solid rgba(255,255,255,0.1);
+    border-top: 2px solid var(--color-warm-tan);
     opacity: 0.7;
     font-size: 0.9rem;
 }
 
 /* ===== Page Header ===== */
 .page-header {
-    padding: calc(80px + var(--spacing-xl)) 0 var(--spacing-xl);
-    background: linear-gradient(135deg, var(--color-secondary) 0%, var(--color-secondary-light) 100%);
-    text-align: center;
-    color: var(--color-white);
+    padding: calc(70px + var(--spacing-md)) 0 0;
+    background: transparent;
+    color: var(--color-text-dark);
+}
+
+.page-header .container {
+    background: var(--color-white);
+    border: 2px solid var(--color-text-dark);
+    border-radius: var(--radius-lg);
+    padding: 2rem;
+    text-align: left;
 }
 
 .page-header h1 {
-    color: var(--color-white);
+    color: var(--color-text-dark);
     margin-bottom: var(--spacing-sm);
 }
 
 .page-header p {
-    opacity: 0.9;
-    max-width: 600px;
-    margin: 0 auto;
+    opacity: 1;
+    max-width: 680px;
+    margin: 0;
 }
 
 /* ===== Content Sections ===== */
@@ -1006,6 +1024,7 @@ a.feature-card.clickable:hover .learn-more {
 
 .book-card {
     background-color: var(--color-white);
+    border: 2px solid var(--color-text-dark);
     border-radius: var(--radius-lg);
     overflow: hidden;
     box-shadow: var(--shadow-md);
@@ -1013,7 +1032,7 @@ a.feature-card.clickable:hover .learn-more {
 }
 
 .book-card:hover {
-    transform: translateY(-5px);
+    transform: translateY(-2px);
     box-shadow: var(--shadow-lg);
 }
 
@@ -1399,7 +1418,8 @@ a.concept-card.clickable:hover .learn-more {
 .book-meta {
     position: sticky;
     top: 100px;
-    background-color: var(--color-warm-beige);
+    background-color: var(--color-white);
+    border: 2px solid var(--color-text-dark);
     padding: var(--spacing-lg);
     border-radius: var(--radius-lg);
     z-index: 1;
@@ -1429,6 +1449,7 @@ a.concept-card.clickable:hover .learn-more {
 
 .book-summary-content {
     background-color: var(--color-white);
+    border: 2px solid var(--color-text-dark);
     padding: var(--spacing-xl);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-sm);
@@ -1437,7 +1458,7 @@ a.concept-card.clickable:hover .learn-more {
 .chapter-summary {
     margin-bottom: var(--spacing-xl);
     padding-bottom: var(--spacing-xl);
-    border-bottom: 1px solid var(--color-warm-tan);
+    border-bottom: 2px solid var(--color-warm-tan);
 }
 
 .chapter-summary:last-of-type {
@@ -1465,6 +1486,7 @@ a.concept-card.clickable:hover .learn-more {
 
 .book-cta {
     background-color: var(--color-warm-cream);
+    border: 2px solid var(--color-text-dark);
     padding: var(--spacing-lg);
     border-radius: var(--radius-md);
     text-align: center;
@@ -1505,7 +1527,8 @@ a.concept-card.clickable:hover .learn-more {
 .article-meta {
     position: sticky;
     top: 100px;
-    background-color: var(--color-warm-beige);
+    background-color: var(--color-white);
+    border: 2px solid var(--color-text-dark);
     padding: var(--spacing-lg);
     border-radius: var(--radius-lg);
     z-index: 1;
@@ -1524,6 +1547,7 @@ a.concept-card.clickable:hover .learn-more {
 
 .article-body {
     background-color: var(--color-white);
+    border: 2px solid var(--color-text-dark);
     padding: var(--spacing-xl);
     border-radius: var(--radius-lg);
     box-shadow: var(--shadow-sm);
@@ -1599,7 +1623,8 @@ a.concept-card.clickable:hover .learn-more {
         left: 0;
         right: 0;
         flex-direction: column;
-        background-color: var(--color-white);
+        background-color: var(--color-warm-beige);
+        border-bottom: 2px solid var(--color-text-dark);
         padding: var(--spacing-md);
         gap: 0;
         box-shadow: var(--shadow-md);
@@ -1724,21 +1749,22 @@ a.concept-card.clickable:hover .learn-more {
     color: var(--color-text);
     line-height: 1.8;
     margin-bottom: var(--spacing-xl);
-    border-left: 4px solid var(--color-primary);
+    border-left: 4px solid var(--color-text-dark);
     padding-left: var(--spacing-md);
 }
 
 /* Info boxes */
 .info-box {
-    background-color: var(--color-warm-beige);
+    background-color: var(--color-warm-cream);
+    border: 2px solid var(--color-text-dark);
     padding: var(--spacing-lg);
     border-radius: var(--radius-md);
     margin: var(--spacing-lg) 0;
 }
 
 .info-box.highlight {
-    background-color: #f0f7f0;
-    border-left: 4px solid var(--color-secondary);
+    background-color: var(--color-white);
+    border-left: 4px solid var(--color-text-dark);
 }
 
 .info-box h4 {
@@ -2272,7 +2298,7 @@ a.concept-card.clickable:hover .learn-more {
     width: 100px;
     height: 100px;
     border-radius: 50%;
-    border: 3px solid var(--color-primary);
+    border: 2px solid var(--color-text-dark);
 }
 
 /* ===== Homepage Book Cards with Covers ===== */
@@ -2287,6 +2313,7 @@ a.concept-card.clickable:hover .learn-more {
     align-items: center;
     padding: var(--spacing-xl) var(--spacing-lg);
     background-color: var(--color-warm-cream);
+    border-bottom: 2px solid var(--color-text-dark);
     border-radius: var(--radius-lg) var(--radius-lg) 0 0;
     height: 240px;
     overflow: hidden;
@@ -2315,7 +2342,7 @@ a.concept-card.clickable:hover .learn-more {
 }
 
 .book-card .book-info h3 {
-    color: var(--color-primary);
+    color: var(--color-text-dark);
     margin-bottom: var(--spacing-xs);
 }
 
@@ -2422,18 +2449,21 @@ a.concept-card.clickable:hover .learn-more {
 .footer-disclaimer {
     text-align: center;
     padding: var(--spacing-md);
-    margin-bottom: var(--spacing-md);
-    background-color: rgba(255,255,255,0.05);
+    margin: 0 auto;
+    max-width: 540px;
+    background-color: var(--color-warm-cream);
+    border: 2px solid var(--color-text-dark);
     border-radius: var(--radius-md);
     font-size: 0.9rem;
 }
 
 .footer-disclaimer a {
-    color: var(--color-primary-light);
+    color: var(--color-text-dark);
+    text-decoration: underline;
 }
 
 .footer-disclaimer a:hover {
-    color: var(--color-white);
+    color: var(--color-text-dark);
     text-decoration: underline;
 }
 
@@ -2923,22 +2953,25 @@ a.concept-card.clickable:hover .learn-more {
 /* ===== Photo Page Headers (Subpages - Sacramento Style) ===== */
 .page-header-photo {
     position: relative;
-    min-height: 45vh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    overflow: hidden;
-    margin-top: 56px;
+    max-width: 1140px;
+    margin: calc(70px + var(--spacing-md)) auto 0;
+    padding: 0 var(--spacing-lg);
+    min-height: 0;
+    display: grid;
+    grid-template-columns: minmax(240px, 320px) minmax(0, 1fr);
+    gap: 1rem;
+    align-items: stretch;
+    text-align: left;
+    overflow: visible;
 }
 
 .page-header-photo__bg {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
+    position: relative;
     z-index: 0;
+    min-height: 280px;
+    border: 2px solid var(--color-text-dark);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
 }
 
 .page-header-photo__bg img {
@@ -2948,69 +2981,70 @@ a.concept-card.clickable:hover .learn-more {
 }
 
 .page-header-photo__overlay {
-    position: absolute;
-    top: 0;
-    right: 0;
-    bottom: 0;
-    left: 0;
-    background: linear-gradient(
-        180deg,
-        rgba(45, 45, 45, 0.45) 0%,
-        rgba(45, 45, 45, 0.65) 100%
-    );
-    z-index: 1;
+    display: none;
 }
 
 .page-header-photo__content {
     position: relative;
     z-index: 2;
-    width: 100%;
-    padding: calc(var(--spacing-xxl) + 20px) 0 var(--spacing-xxl);
+    width: auto;
+    padding: 0;
+}
+
+.page-header-photo__content .container {
+    max-width: none;
+    height: 100%;
+    min-height: 280px;
+    padding: 2rem;
+    background: var(--color-white);
+    border: 2px solid var(--color-text-dark);
+    border-radius: var(--radius-lg);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
 }
 
 .page-header-photo h1 {
-    color: var(--color-white);
+    color: var(--color-text-dark);
     margin-bottom: var(--spacing-sm);
-    text-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
+    text-shadow: none;
 }
 
 .page-header-photo .book-label {
     text-transform: uppercase;
     letter-spacing: 2px;
     font-size: 0.875rem;
-    color: rgba(255, 255, 255, 0.85);
+    color: var(--color-text-light);
     margin-bottom: var(--spacing-sm);
 }
 
 .page-header-photo .book-author-header {
     font-style: italic;
     font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--color-text);
 }
 
 .page-header-photo .book-author-header a {
-    color: rgba(255, 255, 255, 0.96);
+    color: var(--color-text-dark);
     text-decoration: underline;
-    text-decoration-color: rgba(255, 255, 255, 0.35);
+    text-decoration-color: rgba(22, 20, 18, 0.35);
 }
 
 .page-header-photo .book-author-header a:hover {
-    color: var(--color-white);
+    color: var(--color-text-dark);
 }
 
 /* Issue header photo variant */
 .issue-header-photo .issue-icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto var(--spacing-lg);
-    background-color: rgba(255, 255, 255, 0.15);
-    border-radius: 50%;
+    width: 72px;
+    height: 72px;
+    margin: 0 0 var(--spacing-lg);
+    background-color: var(--color-text-dark);
+    border-radius: 18px;
     display: flex;
     align-items: center;
     justify-content: center;
     color: var(--color-white);
-    -webkit-backdrop-filter: blur(4px);
-    backdrop-filter: blur(4px);
 }
 
 .issue-header-photo .issue-icon svg {
@@ -3019,28 +3053,28 @@ a.concept-card.clickable:hover .learn-more {
 }
 
 .issue-header-photo .issue-subtitle {
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--color-text);
     font-size: 1.25rem;
-    font-style: italic;
+    font-style: normal;
 }
 
 /* Concept header photo variant */
 .concept-header-photo .back-link {
-    color: rgba(255, 255, 255, 0.8);
+    color: var(--color-text-light);
     display: inline-block;
     margin-bottom: var(--spacing-lg);
     text-decoration: none;
 }
 
 .concept-header-photo .back-link:hover {
-    color: var(--color-white);
+    color: var(--color-text-dark);
 }
 
 .concept-header-photo .concept-icon {
-    width: 80px;
-    height: 80px;
-    margin: 0 auto var(--spacing-md);
-    color: rgba(255, 255, 255, 0.9);
+    width: 64px;
+    height: 64px;
+    margin: 0 0 var(--spacing-md);
+    color: var(--color-text-dark);
 }
 
 .concept-header-photo .concept-icon svg {
@@ -3050,17 +3084,22 @@ a.concept-card.clickable:hover .learn-more {
 
 .concept-header-photo .subtitle {
     font-size: 1.25rem;
-    color: rgba(255, 255, 255, 0.9);
+    color: var(--color-text);
 }
 
 /* Responsive adjustments for photo page headers */
 @media (max-width: 768px) {
     .page-header-photo {
-        min-height: 35vh;
+        grid-template-columns: 1fr;
     }
 
-    .page-header-photo__content {
-        padding: calc(var(--spacing-xl) + 20px) 0 var(--spacing-xl);
+    .page-header-photo__bg {
+        min-height: 210px;
+    }
+
+    .page-header-photo__content .container {
+        min-height: 0;
+        padding: 1.6rem;
     }
 
     .page-header-photo h1 {
@@ -3069,8 +3108,12 @@ a.concept-card.clickable:hover .learn-more {
 }
 
 @media (max-width: 480px) {
-    .page-header-photo {
-        min-height: 30vh;
+    .page-header-photo__bg {
+        min-height: 180px;
+    }
+
+    .page-header-photo__content .container {
+        padding: 1.35rem;
     }
 
     .page-header-photo h1 {
