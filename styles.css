@@ -356,7 +356,7 @@ img {
 
 .hero-home__byline {
     max-width: 34rem;
-    margin: 0 auto 1.75rem;
+    margin: 0 auto;
     color: var(--color-text-light);
     font-size: 0.98rem;
 }
@@ -365,34 +365,6 @@ img {
     color: var(--color-text-dark);
     text-decoration: underline;
     text-underline-offset: 0.12em;
-}
-
-.hero-home .hero-buttons {
-    justify-content: center;
-}
-
-.hero-home .btn-primary {
-    background-color: var(--color-primary);
-    color: var(--color-white);
-    border-color: var(--color-primary);
-}
-
-.hero-home .btn-primary:hover {
-    background-color: var(--color-primary-dark);
-    border-color: var(--color-primary-dark);
-    color: var(--color-white);
-}
-
-.hero-home .btn-secondary {
-    background-color: var(--color-white);
-    color: var(--color-primary);
-    border-color: var(--color-text-dark);
-}
-
-.hero-home .btn-secondary:hover {
-    background-color: var(--color-warm-cream);
-    border-color: var(--color-text-dark);
-    color: var(--color-primary-dark);
 }
 
 .landing-section {
@@ -2818,14 +2790,6 @@ main [id] {
 
     .hero-home h1 {
         max-width: none;
-    }
-
-    .hero-home .hero-buttons {
-        justify-content: stretch;
-    }
-
-    .hero-home .hero-buttons .btn {
-        width: 100%;
     }
 
     .homepage-overview__actions .btn {
