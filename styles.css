@@ -354,19 +354,6 @@ img {
     margin: 0 auto 0.85rem;
 }
 
-.hero-home__byline {
-    max-width: 34rem;
-    margin: 0 auto;
-    color: var(--color-text-light);
-    font-size: 0.98rem;
-}
-
-.hero-home__byline a {
-    color: var(--color-text-dark);
-    text-decoration: underline;
-    text-underline-offset: 0.12em;
-}
-
 .landing-section {
     background: transparent;
 }
