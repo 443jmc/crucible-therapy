@@ -315,13 +315,15 @@ img {
 }
 
 .hero-home__layout {
-    display: block;
+    display: flex;
+    justify-content: center;
 }
 
 .hero-home__content {
     display: flex;
     flex-direction: column;
     align-items: center;
+    width: min(100%, 46rem);
     max-width: 46rem;
     margin: 0 auto;
     background: var(--color-white);
@@ -339,15 +341,10 @@ img {
     margin: 0 auto 1rem;
     color: var(--color-text-dark);
     text-shadow: none;
-    text-wrap: balance;
 }
 
-.hero-home h1 span {
+.hero-home h1 br {
     display: block;
-}
-
-.hero-home h1 span:last-child {
-    white-space: nowrap;
 }
 
 .hero-home .hero-subtitle {
@@ -2894,10 +2891,6 @@ a.concept-card.clickable:hover .learn-more {
 
     .hero-home h1 {
         max-width: none;
-    }
-
-    .hero-home h1 span:last-child {
-        white-space: normal;
     }
 
     .hero-home .hero-buttons {
