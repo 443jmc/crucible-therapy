@@ -351,7 +351,20 @@ img {
     max-width: 36rem;
     font-size: 1.12rem;
     color: var(--color-text);
+    margin: 0 auto 0.85rem;
+}
+
+.hero-home__byline {
+    max-width: 34rem;
     margin: 0 auto 1.75rem;
+    color: var(--color-text-light);
+    font-size: 0.98rem;
+}
+
+.hero-home__byline a {
+    color: var(--color-text-dark);
+    text-decoration: underline;
+    text-underline-offset: 0.12em;
 }
 
 .hero-home .hero-buttons {
@@ -378,94 +391,6 @@ img {
 
 .hero-home .btn-secondary:hover {
     background-color: var(--color-warm-cream);
-    border-color: var(--color-text-dark);
-    color: var(--color-primary-dark);
-}
-
-.feature-chip {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 0.45rem 0.8rem;
-    border-radius: 999px;
-    background: var(--color-primary);
-    border: 2px solid var(--color-primary);
-    color: var(--color-white);
-    font-size: 0.75rem;
-    font-weight: 700;
-    letter-spacing: 0.12em;
-    text-transform: uppercase;
-}
-
-.feature-chip--dark {
-    background: var(--color-warm-beige);
-    border-color: rgba(23, 21, 19, 0.1);
-    color: var(--color-primary-dark);
-}
-
-.hero-home__summary {
-    width: 100%;
-    max-width: 420px;
-    justify-self: end;
-    background: var(--color-white);
-    border: 2px solid var(--color-text-dark);
-    border-radius: var(--radius-lg);
-    padding: 1.6rem;
-    box-shadow: var(--shadow-sm);
-}
-
-.hero-home__summary h2 {
-    font-size: clamp(1.8rem, 3vw, 2.35rem);
-    margin: 1rem 0 0.8rem;
-}
-
-.hero-home__summary-list {
-    list-style: none;
-    margin: 0;
-    padding: 0;
-}
-
-.hero-home__summary-list li {
-    position: relative;
-    padding: 0 0 0 1.2rem;
-    color: var(--color-text);
-}
-
-.hero-home__summary-list li + li {
-    margin-top: 0.9rem;
-}
-
-.hero-home__summary-list li::before {
-    content: '';
-    position: absolute;
-    top: 0.65rem;
-    left: 0;
-    width: 7px;
-    height: 7px;
-    border-radius: 50%;
-    background: var(--color-primary);
-}
-
-.hero-home__summary-links {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.75rem;
-    margin-top: 1.4rem;
-}
-
-.hero-home__summary-links a {
-    display: inline-flex;
-    align-items: center;
-    padding: 0.75rem 0.95rem;
-    border-radius: 999px;
-    background: var(--color-warm-cream);
-    border: 2px solid var(--color-text-dark);
-    color: var(--color-text-dark);
-    font-weight: 600;
-}
-
-.hero-home__summary-links a:hover {
-    background: var(--color-warm-beige);
     border-color: var(--color-text-dark);
     color: var(--color-primary-dark);
 }
@@ -560,30 +485,33 @@ img {
     font-weight: 700;
 }
 
-.homepage-overview,
-.homepage-reading {
+.homepage-overview {
     background: transparent;
 }
 
-.homepage-overview__grid,
-.homepage-reading__grid {
+.homepage-overview__grid {
     align-items: stretch;
 }
 
-.homepage-overview__card,
-.homepage-reading__card {
+.homepage-overview__card {
     text-align: center;
     padding: 1.5rem;
 }
 
-.homepage-overview__card h3,
-.homepage-reading__card h3 {
+.homepage-overview__card h3 {
     font-size: 1.45rem;
 }
 
-.homepage-overview__card p,
-.homepage-reading__card p {
+.homepage-overview__card p {
     margin-bottom: 0;
+}
+
+.homepage-overview__actions {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 0.9rem;
+    margin-top: 1.6rem;
 }
 
 .path-card,
@@ -2650,6 +2578,10 @@ a.concept-card.clickable:hover .learn-more {
     color: var(--color-text-light);
 }
 
+main [id] {
+    scroll-margin-top: 90px;
+}
+
 .portal-grid-photo {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
@@ -2859,14 +2791,8 @@ a.concept-card.clickable:hover .learn-more {
 
 /* ===== Responsive Adjustments for Photo Components ===== */
 @media (max-width: 992px) {
-    .hero-home__layout,
     .landing-section__layout {
         grid-template-columns: 1fr;
-    }
-
-    .hero-home__summary {
-        max-width: 620px;
-        justify-self: start;
     }
 
     .feature-spotlight,
@@ -2901,8 +2827,8 @@ a.concept-card.clickable:hover .learn-more {
         width: 100%;
     }
 
-    .hero-home__summary {
-        padding: 1.35rem;
+    .homepage-overview__actions .btn {
+        width: 100%;
     }
 
     .feature-spotlight__body {
@@ -2956,14 +2882,6 @@ a.concept-card.clickable:hover .learn-more {
 
     .hero__content h1 {
         font-size: 2rem;
-    }
-
-    .hero-home__summary {
-        padding: 1.2rem;
-    }
-
-    .hero-home__summary h2 {
-        font-size: 1.65rem;
     }
 
     .landing-section__thumb {
