@@ -12,9 +12,9 @@
     --color-warm-cream: #F7F0E4;
     --color-warm-beige: #E5D8C7;
     --color-warm-tan: #C1AE96;
-    --color-text: #322E29;
-    --color-text-light: #68615A;
-    --color-text-dark: #161412;
+    --color-text: #111111;
+    --color-text-light: #111111;
+    --color-text-dark: #111111;
     --color-white: #FFFFFF;
 
     /* Typography */
@@ -309,7 +309,7 @@ img {
 
 .hero-home {
     min-height: auto;
-    padding: calc(64px + var(--spacing-lg)) 0 var(--spacing-xl);
+    padding: calc(64px + var(--spacing-lg)) 0 var(--spacing-sm);
     background: transparent;
     text-align: center;
 }
@@ -487,6 +487,7 @@ img {
 
 .homepage-overview {
     background: transparent;
+    padding-top: var(--spacing-lg);
 }
 
 .homepage-overview__grid {
