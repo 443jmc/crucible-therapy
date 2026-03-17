@@ -330,8 +330,8 @@ img {
 }
 
 .hero-home h1 {
-    max-width: 10.5ch;
-    font-size: clamp(2.8rem, 5.6vw, 4.85rem);
+    max-width: 8.2ch;
+    font-size: clamp(3.1rem, 5.8vw, 5.15rem);
     line-height: 0.98;
     letter-spacing: -0.03em;
     margin-bottom: 1rem;
@@ -560,6 +560,37 @@ img {
 .path-card__link {
     color: var(--color-text-dark);
     font-weight: 700;
+}
+
+.homepage-overview,
+.homepage-reading {
+    background: transparent;
+}
+
+.homepage-overview__grid,
+.homepage-reading__grid {
+    align-items: stretch;
+}
+
+.homepage-overview__card,
+.homepage-reading__card {
+    text-align: left;
+    padding: 1.5rem;
+}
+
+.homepage-overview__card h3,
+.homepage-reading__card h3 {
+    font-size: 1.45rem;
+}
+
+.homepage-overview__card p,
+.homepage-reading__card p {
+    margin-bottom: 0;
+}
+
+.homepage-issues {
+    border-top: 2px solid var(--color-text-dark);
+    border-bottom: 2px solid var(--color-text-dark);
 }
 
 .homepage-books {
