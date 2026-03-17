@@ -2,7 +2,7 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://crucibletherapy.org/</loc>
-    <lastmod>2026-03-16</lastmod>
+    <lastmod>2026-03-17</lastmod>
   </url>
   <url>
     <loc>https://crucibletherapy.org/articles/what-is-crucible-therapy.html</loc>
@@ -73,6 +73,10 @@
     <lastmod>2026-03-16</lastmod>
   </url>
   <url>
+    <loc>https://crucibletherapy.org/concepts/regression.html</loc>
+    <lastmod>2026-03-17</lastmod>
+  </url>
+  <url>
     <loc>https://crucibletherapy.org/books/passionate-marriage.html</loc>
     <lastmod>2026-03-16</lastmod>
   </url>
@@ -86,6 +90,6 @@
   </url>
   <url>
     <loc>https://crucibletherapy.org/books/living-at-the-bottom-of-the-ocean.html</loc>
-    <lastmod>2026-03-16</lastmod>
+    <lastmod>2026-03-17</lastmod>
   </url>
 </urlset>
