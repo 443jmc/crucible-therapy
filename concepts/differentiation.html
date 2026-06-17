@@ -23,18 +23,20 @@
     <link rel="stylesheet" href="../styles.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="container">
+        <nav class="navbar">
+        <div class="nav-container">
             <a href="../index.html" class="logo">Crucible Therapy</a>
             <button class="nav-toggle" aria-label="Toggle navigation">
                 <span></span>
                 <span></span>
                 <span></span>
             </button>
-            <div class="nav-links">
-                <a href="../articles/what-is-crucible-therapy.html">What is Crucible Therapy?</a>
-                <a href="../index.html#books">Books</a>
-            </div>
+            <ul class="nav-links">
+                <li><a href="../articles/what-is-crucible-therapy.html">What Is Crucible Therapy?</a></li>
+                <li><a href="../index.html#ideas" class="active">Ideas</a></li>
+                <li><a href="../index.html#issues">Issues</a></li>
+                <li><a href="../index.html#books">Books</a></li>
+            </ul>
         </div>
     </nav>
 
@@ -60,6 +62,10 @@
     <main class="article-content-page">
         <div class="container">
             <div class="article-body">
+                <div class="summary-box">
+                    <p class="summary-box__label">In one sentence</p>
+                    <p>Differentiation is the ability to hold onto who you are while staying close to your partner &mdash; and it is what makes real intimacy possible.</p>
+                </div>
                 <p class="lead">Differentiation is the ability to maintain your sense of self—your values, beliefs, and identity—while remaining emotionally connected to your partner. It's the cornerstone of Dr. David Schnarch's Crucible Therapy and the key to creating lasting, passionate relationships.</p>
 
                 <h2>What Differentiation Is (And Isn't)</h2>
@@ -181,12 +187,20 @@
                 </ol>
             </div>
         </div>
+        <div class="container">
+            <aside class="next-step">
+                <span class="next-step__kicker">Keep reading</span>
+                <a href="../concepts/deeper-intimacy.html" class="next-step__link">Self-Validated Intimacy &rarr;</a>
+                <a href="../index.html" class="next-step__home">Back to all topics</a>
+            </aside>
+        </div>
     </main>
 
     <footer class="footer">
         <div class="container">
             <div class="footer-disclaimer">
-                <p>This is not the official Crucible Therapy website. For official information, please visit the <a href="https://www.international-crucible-education-center.org" target="_blank">International Crucible Education Center</a>.</p>
+                <p class="footer-disclaimer__label">Independent educational resource</p>
+                <p>This site is an independent guide to Dr. David Schnarch's Crucible Therapy, written to explain his ideas in plain language. It is not affiliated with or endorsed by the official organization. For training, therapist referrals, and official information, visit the <a href="https://www.international-crucible-education-center.org" target="_blank" rel="noopener noreferrer">International Crucible Education Center</a>.</p>
             </div>
         </div>
     </footer>

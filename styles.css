@@ -3024,3 +3024,102 @@ main [id] {
         font-size: 1.75rem;
     }
 }
+
+/* ===== Homepage hero CTA + section intros (added) ===== */
+.hero-actions {
+    display: flex;
+    gap: var(--spacing-sm);
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 0.5rem;
+}
+.hero-home .btn-primary {
+    background-color: var(--color-text-dark);
+    color: var(--color-white);
+    border-color: var(--color-text-dark);
+}
+.hero-home .btn-primary:hover {
+    background-color: var(--color-primary-light);
+    border-color: var(--color-primary-light);
+}
+.hero-home .btn-secondary {
+    background-color: transparent;
+    color: var(--color-text-dark);
+    border-color: var(--color-text-dark);
+}
+.hero-home .btn-secondary:hover {
+    background-color: var(--color-text-dark);
+    color: var(--color-white);
+}
+.section-intro {
+    max-width: 38rem;
+    margin: 0.6rem auto 0;
+    color: var(--color-text-light);
+    font-size: 1.05rem;
+}
+
+/* ===== "In one sentence" summary box (added) ===== */
+.summary-box {
+    background: var(--color-warm-cream);
+    border: 2px solid var(--color-text-dark);
+    border-radius: var(--radius-md);
+    padding: 1.1rem 1.3rem;
+    margin-bottom: var(--spacing-lg);
+}
+.summary-box__label {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 0.35rem;
+}
+.summary-box p:last-child {
+    margin-bottom: 0;
+    font-size: 1.08rem;
+}
+
+/* ===== Next-step block (added) ===== */
+.next-step {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 0.4rem;
+    background: var(--color-white);
+    border: 2px solid var(--color-text-dark);
+    border-radius: var(--radius-lg);
+    padding: 1.4rem 1.6rem;
+    margin: var(--spacing-lg) 0 var(--spacing-xl);
+}
+.next-step__kicker {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--color-primary);
+}
+.next-step__link {
+    font-family: var(--font-heading);
+    font-size: 1.35rem;
+    color: var(--color-text-dark);
+    font-weight: 600;
+}
+.next-step__link:hover {
+    color: var(--color-primary-light);
+}
+.next-step__home {
+    font-weight: 600;
+    font-size: 0.9rem;
+    color: var(--color-text-light);
+    text-decoration: underline;
+}
+
+/* ===== Footer disclaimer label (added) ===== */
+.footer-disclaimer__label {
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    font-size: 0.72rem;
+    font-weight: 700;
+    color: var(--color-primary);
+    margin-bottom: 0.4rem;
+}
