@@ -5,7 +5,7 @@ document.addEventListener('DOMContentLoaded', function() {
             e.preventDefault();
             const target = document.querySelector(this.getAttribute('href'));
             if (target) {
-                const chrome = document.querySelector('.site-chrome') || document.querySelector('.navbar');
+                const chrome = document.querySelector('.site-chrome');
                 const navHeight = chrome ? chrome.offsetHeight : 0;
                 const targetPosition = target.offsetTop - navHeight;
                 window.scrollTo({

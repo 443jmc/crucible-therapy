@@ -1,7 +1,7 @@
 /* =========================================================
    Crucible Therapy — Warm & Calming redesign
    A soft, editorial, reassuring visual system.
-   Cache: 20260812c
+   Cache: 20260812d
    ========================================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Source+Sans+3:wght@400;500;600;700&display=swap');
@@ -46,7 +46,7 @@
     --radius-md: 10px;
     --radius-lg: 12px;
     --radius-pill: 999px;
-    --chrome-offset: 86px;
+    --chrome-offset: 40px;
 
     /* Shadows — soft, warm-tinted */
     --shadow-sm: 0 1px 2px rgba(60, 45, 30, 0.04), 0 4px 14px rgba(60, 45, 30, 0.05);
@@ -167,7 +167,7 @@ main [id] { scroll-margin-top: calc(var(--chrome-offset) + 16px); }
     border-color: var(--ink);
 }
 
-/* ===== Site chrome (banner + logo) ===== */
+/* ===== Site chrome (disclaimer banner only) ===== */
 .site-chrome {
     position: fixed;
     top: 0; left: 0; right: 0;
@@ -206,36 +206,12 @@ footer.site-banner {
     line-height: 1.55;
 }
 
-/* ===== Logo bar ===== */
-.navbar {
-    position: relative;
-    background-color: rgba(251, 247, 241, 0.92);
-    backdrop-filter: saturate(160%) blur(12px);
-    -webkit-backdrop-filter: saturate(160%) blur(12px);
-    border-bottom: 1px solid var(--line);
-}
-
-.nav-container {
-    max-width: 1080px;
-    margin: 0 auto;
-    padding: 0.5rem var(--spacing-lg);
-}
-
-.logo {
-    font-family: var(--font-display);
-    font-size: 1.22rem;
-    font-weight: 600;
-    color: var(--ink);
-    letter-spacing: -0.01em;
-}
-.logo:hover { color: var(--terracotta); }
-
 /* ===== Home hero ===== */
 .hero-home {
     background:
         radial-gradient(1200px 520px at 50% -10%, var(--surface-cream) 0%, rgba(247,240,229,0) 70%),
         linear-gradient(180deg, var(--bg-tint) 0%, var(--bg) 72%);
-    padding: calc(var(--chrome-offset, 86px) + 2.4rem) 0 2.4rem;
+    padding: calc(var(--chrome-offset, 40px) + 2.4rem) 0 2.4rem;
     text-align: center;
 }
 .hero-home__layout { display: flex; justify-content: center; }
@@ -491,7 +467,7 @@ footer.site-banner {
 .page-header-photo {
     position: relative;
     width: min(720px, calc(100% - 4rem));
-    margin: calc(var(--chrome-offset, 86px) + 1rem) auto 0;
+    margin: calc(var(--chrome-offset, 40px) + 1rem) auto 0;
     padding: 0;
     display: flex;
     flex-direction: row;
@@ -569,7 +545,7 @@ footer.site-banner {
 .book-page-header { padding-bottom: 0; }
 
 /* Plain page header (fallback) */
-.page-header { padding: calc(var(--chrome-offset, 86px) + 1rem) 0 0; }
+.page-header { padding: calc(var(--chrome-offset, 40px) + 1rem) 0 0; }
 .page-header .container {
     background: none;
     border: none;
@@ -757,7 +733,7 @@ footer.site-banner {
 }
 .book-meta {
     position: sticky;
-    top: calc(var(--chrome-offset, 86px) + 16px);
+    top: calc(var(--chrome-offset, 40px) + 16px);
     background: var(--surface);
     border: 1px solid var(--line);
     border-radius: var(--radius-md);
@@ -847,7 +823,7 @@ footer.site-banner {
 }
 
 @media (max-width: 768px) {
-    :root { --chrome-offset: 96px; }
+    :root { --chrome-offset: 64px; }
     .site-banner { font-size: 0.78rem; padding: 0.4rem 0; }
     footer.site-banner { padding: 1.35rem 0 1.6rem; }
     .audience-paths { grid-template-columns: 1fr; }
@@ -874,7 +850,6 @@ footer.site-banner {
 @media (max-width: 480px) {
     body { font-size: 16px; }
     .container { padding: 0 var(--spacing-md); }
-    .nav-container { padding: 0.55rem var(--spacing-md); }
     .book-meta .btn { width: 100%; }
     .book-cover-link { height: 180px; }
     .hero-home h1 { max-width: none; }
