@@ -1,7 +1,7 @@
 /* =========================================================
    Crucible Therapy — Warm & Calming redesign
    A soft, editorial, reassuring visual system.
-   Cache: 20260812d
+   Cache: 20260813a
    ========================================================= */
 
 @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400..700;1,9..144,400..600&family=Source+Sans+3:wght@400;500;600;700&display=swap');
@@ -185,6 +185,13 @@ main [id] { scroll-margin-top: calc(var(--chrome-offset) + 16px); }
     text-align: center;
 }
 .site-banner .container { max-width: 1080px; }
+.site-banner__inner {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.55rem 1.15rem;
+    flex-wrap: wrap;
+}
 .site-banner p { margin: 0; }
 .site-banner a {
     color: var(--terracotta-dark);
@@ -193,6 +200,19 @@ main [id] { scroll-margin-top: calc(var(--chrome-offset) + 16px); }
     text-underline-offset: 2px;
 }
 .site-banner a:hover { color: var(--terracotta); }
+.site-banner a.site-home {
+    font-family: var(--font-display);
+    font-size: 0.98rem;
+    font-weight: 600;
+    color: var(--ink);
+    text-decoration: none;
+    white-space: nowrap;
+}
+.site-banner a.site-home:hover {
+    color: var(--terracotta-dark);
+    text-decoration: underline;
+    text-underline-offset: 3px;
+}
 
 /* Footer uses the same message, but should read as a site footer — not a cloned top strip */
 footer.site-banner {
@@ -204,6 +224,11 @@ footer.site-banner {
     color: var(--muted);
     font-size: 0.8rem;
     line-height: 1.55;
+}
+footer.site-banner .site-home {
+    display: inline-block;
+    margin-bottom: 0.7rem;
+    font-size: 1.08rem;
 }
 
 /* ===== Home hero ===== */
@@ -751,55 +776,6 @@ footer.site-banner {
 }
 .book-meta p, .book-meta .book-note { margin-bottom: var(--spacing-sm); font-size: 0.9rem; color: var(--text); }
 .book-meta .btn { margin-top: var(--spacing-xs); width: 100%; }
-
-/* ===== Next-step block ===== */
-.next-step {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-    gap: 0.35rem;
-    background: transparent;
-    border: none;
-    border-top: 1px solid var(--line);
-    border-radius: 0;
-    padding: 1.35rem 0 0;
-    margin: 1.5rem auto 0;
-    max-width: 720px;
-    box-shadow: none;
-}
-.next-step__kicker {
-    text-transform: uppercase;
-    letter-spacing: 0.14em;
-    font-size: 0.7rem;
-    font-weight: 700;
-    color: var(--terracotta);
-}
-.next-step__link {
-    font-family: var(--font-display);
-    font-size: 1.28rem;
-    color: var(--ink);
-    font-weight: 600;
-    line-height: 1.25;
-}
-.next-step__link:hover { color: var(--terracotta-dark); }
-.next-step__home {
-    font-weight: 600;
-    font-size: 0.86rem;
-    color: var(--muted);
-    text-decoration: none;
-    margin-top: 0.35rem;
-}
-.next-step__home:hover { color: var(--terracotta-dark); }
-.next-step__more {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 0.35rem 1.1rem;
-    font-weight: 600;
-    font-size: 0.88rem;
-    margin-top: 0.15rem;
-}
-.next-step__more a { color: var(--terracotta-dark); }
-.next-step__more a:hover { color: var(--terracotta); }
 
 /* ===== "In one sentence" summary box ===== */
 .summary-box {
